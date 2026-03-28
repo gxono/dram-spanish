@@ -3,45 +3,45 @@
             [clojure.string :as string]
             [clojure.test :refer [is are]]))
 
-;; Welcome to Clojure! ♥️
+;; ¡Bienvenido a Clojure! ♥️
 
-;; Start with loading this file.
+;; Comienza cargando este archivo.
 ;; Ctrl+Alt+C Enter
-;; (The Alt key is sometimes named Option or Opt)
+;; (La tecla Alt a veces se llama Option u Opt)
 
-;; Then evaluate this expression with Alt+Enter:
+;; Luego evalúa esta expresión con Alt+Enter:
 
 "Hello World"
 
-;; That's a concise Hello World for any language.
-;; And note that there are no parens. 😀
+;; Eso es un Hello World conciso para cualquier lenguaje.
+;; Y nota que no hay paréntesis. 😀
 
-;; This guide will try to give you a basic
-;; understanding of the Clojure language. Basic in
-;; the sense that it is not extensive. Basic in the
-;; sense that it is foundational, building from first
-;; principles in order to make the Clojure journey
-;; you have ahead easier to comprehend.
+;; Esta guía intentará darte una comprensión básica
+;; del lenguaje Clojure. Básica en
+;; el sentido de que no es extensa. Básica en el
+;; sentido de que es fundamental, construyendo desde los primeros
+;; principios para hacer el viaje por Clojure
+;; que tienes por delante más fácil de comprender.
 
-;; With the foundations in place you'll have a good
-;; chance of having the right gut feeling for how to
-;; code something, how to formulate your questions,
-;; how to search effectively for information, how to make
-;; sense of code you stumble across, and so on.
+;; Con los fundamentos en su lugar tendrás una buena
+;; oportunidad de tener la intuición correcta sobre cómo
+;; programar algo, cómo formular tus preguntas,
+;; cómo buscar información de manera efectiva, cómo entender
+;; el código con el que te encuentras, y así sucesivamente.
 
-;; There will be links here and there, ctrl/cmd-click
-;; those to open them in a browser. Here's the first
-;; such link;
+;; Habrá enlaces aquí y allá, ctrl/cmd-clic
+;; en ellos para abrirlos en un navegador. Aquí está el primero
+;; de esos enlaces;
 ;; https://clojure.org/guides/learn/syntax
-;; There you can read more about the concepts
-;; mentioned in this guide.
+;; Allí puedes leer más sobre los conceptos
+;; mencionados en esta guía.
 
-;; The way to use the guide is to read about the
-;; concepts and evaluate the examples. Sometimes there
-;; will be exercises in the text. Don't limit your
-;; exercising to those, though. Please feel encouraged
-;; to edit the examples, and add new code
-;; and evaluate that. Evaluate this to warm up:
+;; La forma de usar la guía es leer sobre los
+;; conceptos y evaluar los ejemplos. A veces
+;; habrá ejercicios en el texto. No limites tu
+;; práctica a esos, sin embargo. Por favor, siéntete animado
+;; a editar los ejemplos, y agregar nuevo código
+;; y evaluarlo. Evalúa esto para calentar:
 
 (comment
   (str "Welcome"
@@ -50,26 +50,26 @@
        " "
        "♥️"))
 
-;; Then see what happens if you throw in some numbers
-;; here and there and evaluate again.
+;; Luego mira qué pasa si agregas algunos números
+;; aquí y allá y evalúas de nuevo.
 
-;; NB: This is work in progress...
-;; When you create the Getting Started REPL project the
-;; next time, it may have been updated. 😀
-;; You can also always find the latest version here:
+;; NB: Esto es un trabajo en progreso...
+;; Cuando crees el proyecto REPL de Introducción la
+;; próxima vez, puede que haya sido actualizado. 😀
+;; También siempre puedes encontrar la última versión aquí:
 ;; https://github.com/BetterThanTomorrow/dram/blob/dev/drams/calva_getting_started/src/get_started/welcome_to_clojure.clj
 
 (comment
-  ;; = EXPRESSIONS =
-  ;; In Clojure everything is an expression.
-  ;; (There are no statements.) Unless there is
-  ;; an error when evaluating an expression, there
-  ;; is always a return value (which is sometimes `nil`).
+  ;; = EXPRESIONES =
+  ;; En Clojure todo es una expresión.
+  ;; (No hay declaraciones.) A menos que haya
+  ;; un error al evaluar una expresión, siempre
+  ;; hay un valor de retorno (que a veces es `nil`).
 
-  ;; An important aspect of this is that the result
-  ;; of an expression is always the last form/expression
-  ;; evaluated. E.g. if you have a function defined
-  ;; like so:
+  ;; Un aspecto importante de esto es que el resultado
+  ;; de una expresión es siempre la última forma/expresión
+  ;; evaluada. Por ejemplo, si tienes una función definida
+  ;; así:
 
   (defn last-eval-wins []
     (println 'side-effect-1)
@@ -77,324 +77,323 @@
     (println 'side-effect-2)
     2)
 
-  ;; This defines a function named
-  ;; `last-eval-wins`, taking no arguments, with four
-  ;; expressions in its function body. (We'll return to
-  ;; defining functions later.)
+  ;; Esto define una función llamada
+  ;; `last-eval-wins`, que no toma argumentos, con cuatro
+  ;; expresiones en su cuerpo. (Volveremos a
+  ;; definir funciones más adelante.)
 
-  ;; Calling the function
+  ;; Llamar a la función
 
-  (last-eval-wins) ; <- Evaluate that 😄
+  (last-eval-wins) ; <- Evalúa eso 😄
 
-  ;; will cause all four expressions in the function
-  ;; body to be evaluated. The result of the call will
-  ;; be the last expression that was evaluated.
+  ;; causará que las cuatro expresiones en el cuerpo de la función
+  ;; se evalúen. El resultado de la llamada será
+  ;; la última expresión que fue evaluada.
 
-  ;; In the output window you will also see the
-  ;; `println` calls happening. They are also
-  ;; expressions, evaluating to `nil`.
+  ;; En la ventana de salida también verás las
+  ;; llamadas a `println` ocurrir. También son
+  ;; expresiones, que se evalúan a `nil`.
 
   (println 'prints-this-evaluates-to-nil)
 
-  ;; Expressions are composed from literals (evaluating
-  ;; to themselves) and/or calls to either:
-  ;; * special forms
+  ;; Las expresiones están compuestas de literales (que se evalúan
+  ;; a sí mismos) y/o llamadas a:
+  ;; * formas especiales
   ;; * macros
-  ;; * functions
+  ;; * funciones
 
-  ;; ”Hello World” at the beginning of this guide is a
-  ;; literal string (thus, it evaluates to itself).
-  ;; More about literals in the next section.
+  ;; "Hello World" al principio de esta guía es una
+  ;; cadena literal (por lo tanto, se evalúa a sí misma).
+  ;; Más sobre literales en la próxima sección.
 
-  ;; Calls are written as lists with the called thing
-  ;; as the first element.
+  ;; Las llamadas se escriben como listas con la cosa llamada
+  ;; como primer elemento.
 
-  (def foo "foo") ; Calls the special form `def`,
-                  ; evaluates to the var it creates
-                  ; (More on this later)
+  (def foo "foo") ; Llama a la forma especial `def`,
+                  ; se evalúa al var que crea
+                  ; (Más sobre esto más adelante)
 
-  (for [x '(1 2 3)  ; Calls the macro `for`
-        y '(:a :b)] ; (List comprehension)
+  (for [x '(1 2 3)  ; Llama a la macro `for`
+        y '(:a :b)] ; (Comprensión de lista)
     [x y])
 
-  (str 1 2 3) ; Calls the function `str` with the
-              ; arguments 1, 2, and 3.
+  (str 1 2 3) ; Llama a la función `str` con los
+              ; argumentos 1, 2 y 3.
 
-  ;; Only functions can be passed as values
+  ;; Solo las funciones pueden pasarse como valores
 
-  (map str [:foo :bar])    ; works
-  (map for [:foo :bar])    ; can't take value of a macro
-  (map def [:foo :bar])    ; def is not even a symbol
+  (map str [:foo :bar])    ; funciona
+  (map for [:foo :bar])    ; no se puede tomar el valor de una macro
+  (map def [:foo :bar])    ; def ni siquiera es un símbolo
 
   )
 
 (comment
-  ;; = LITERALS =
-  ;; Literals evaluate to themselves.
-  ;; (Remember your friends:
-  ;;   Alt+Enter and Ctrl+Enter)
+  ;; = LITERALES =
+  ;; Los literales se evalúan a sí mismos.
+  ;; (Recuerda a tus amigos:
+  ;;   Alt+Enter y Ctrl+Enter)
 
-  ;; Numeric types
-  18        ; integer
-  -1.8      ; floating point
-  0.18e2    ; exponent
-  18.0M     ; big decimal
-  18/324    ; ratio
-  18N       ; big integer
-  0x12      ; hex
+  ;; Tipos numéricos
+  18        ; entero
+  -1.8      ; punto flotante
+  0.18e2    ; exponente
+  18.0M     ; decimal grande
+  18/324    ; proporción
+  18N       ; entero grande
+  0x12      ; hexadecimal
   022       ; octal
   2r10010   ; base 2
 
-  ;; Character types
-  "hello"         ; string
-  \e              ; character
-  #"[0-9]+"       ; regular expression
+  ;; Tipos de caracteres
+  "hello"         ; cadena
+  \e              ; carácter
+  #"[0-9]+"       ; expresión regular
 
-  ;; Symbols and idents
-  map             ; symbol
-  +               ; symbol - most punctuation allowed
-  clojure.core/+  ; namespaced symbol
-  nil             ; null/nil value (named in the LISP tradition)
-  true false      ; booleans
+  ;; Símbolos e identificadores
+  map             ; símbolo
+  +               ; símbolo - la mayoría de los signos de puntuación permitidos
+  clojure.core/+  ; símbolo con espacio de nombres
+  nil             ; valor nulo/nil (nombrado en la tradición LISP)
+  true false      ; booleanos
   :alpha          ; keyword
-  :release/alpha  ; namespaced keyword
-  ::alpha         ; namespaced keyword,
-                  ; in current namespace
+  :release/alpha  ; keyword con espacio de nombres
+  ::alpha         ; keyword con espacio de nombres,
+                  ; en el espacio de nombres actual
 
   ;; == KEYWORDS ==
-  ;; Keywords start with a `:`. They are a thing
-  ;; in themselves, often used as identifiers and as
-  ;; keys in maps (more on maps later). Keywords are
-  ;; very memory and speed efficient.
+  ;; Los keywords comienzan con `:`. Son una cosa
+  ;; en sí mismos, usados frecuentemente como identificadores y como
+  ;; claves en mapas (más sobre mapas más adelante). Los keywords son
+  ;; muy eficientes en memoria y velocidad.
 
-  ;; The same keyword is of course equal to itself
+  ;; El mismo keyword es por supuesto igual a sí mismo
 
   (= :foo :foo)
 
-  ;; It is, however, also identical to itself
+  ;; Sin embargo, también es idéntico a sí mismo
 
   (identical? :foo :foo)
 
-  ;; This means it is the same thing, occupying the
-  ;; same (very tiny) place in memory.
-  ;; Even if you construct a non-literal keyword
-  ;; it remains identical to its literal form
+  ;; Esto significa que es la misma cosa, ocupando el
+  ;; mismo lugar (muy pequeño) en memoria.
+  ;; Incluso si construyes un keyword no literal
+  ;; sigue siendo idéntico a su forma literal
 
   (identical? (keyword "foo") :foo)
 
-  ;; This holds true for your whole Clojure program.
-  ;; Keywords are global. There is namespace syntax
-  ;; for them, so that you can have control of this.
+  ;; Esto es verdad para todo tu programa Clojure.
+  ;; Los keywords son globales. Existe una sintaxis de espacio de nombres
+  ;; para ellos, para que puedas tener control de esto.
 
-  ;; Keywords are also functions, actually. But more
-  ;; on that later. For now let it suffice to say
-  ;; that keywords have a very special and important
-  ;; role in most Clojure programs.
+  ;; Los keywords también son funciones, en realidad. Pero más
+  ;; sobre eso más adelante. Por ahora basta decir
+  ;; que los keywords tienen un papel muy especial e importante
+  ;; en la mayoría de los programas Clojure.
 
-  ;; == STRINGS ==
-  ;; Somewhere in between the atomic literals and
-  ;; the collections we have strings. They are sometimes
-  ;; treated as sequences (a cool abstraction I'll
-  ;; talk more about).
-  ;; Strings are enclosed by double quotes.
+  ;; == CADENAS ==
+  ;; En algún lugar entre los literales atómicos y
+  ;; las colecciones tenemos las cadenas. A veces se
+  ;; tratan como secuencias (una abstracción genial sobre la que
+  ;; hablaré más).
+  ;; Las cadenas están encerradas por comillas dobles.
 
   "A string can be
    multi-line, but will contain any leading spaces."
   "Write strings
 like this, if leading spaces are no-no."
 
-  ;; (The single quote is used for something else.
-  ;; You'll see for what a bit later.)
+  ;; (La comilla simple se usa para otra cosa.
+  ;; Verás para qué un poco más adelante.)
   )
 
-;; = TIPS: Tools for practicing Clojure =
+;; = CONSEJOS: Herramientas para practicar Clojure =
 ;;
-;; Here are two resources that work very well together
-;; with this guide:
+;; Aquí hay dos recursos que funcionan muy bien juntos
+;; con esta guía:
 ;;
-;; Rich4Clojure: Practice Clojure wit 4Clojure problems in VS Code
+;; Rich4Clojure: Practica Clojure con problemas 4Clojure en VS Code
 ;; * https://github.com/PEZ/Rich4Clojure
-;; Learning Clojure using Koans using VS Code and Calva
+;; Aprendiendo Clojure usando Koans con VS Code y Calva
 ;; * https://github.com/DanBunea/clojure-koans
 ;;
-;; Both let you learn and practice Clojure by solving
-;; problems, connected to the REPL, in the editor, like
-;; this guide. A way to use them is to open them in
-;; separate VS Code windows and go back and forth between
-;; them and this guide, as you learn thing, and as you
-;; see the need to learn more.
+;; Ambos te permiten aprender y practicar Clojure resolviendo
+;; problemas, conectado al REPL, en el editor, como
+;; esta guía. Una forma de usarlos es abrirlos en
+;; ventanas separadas de VS Code e ir y venir entre
+;; ellos y esta guía, a medida que aprendes cosas, y
+;; ves la necesidad de aprender más.
 
 (comment
-  ;; = NAMESPACES =
-  ;; As important as namespaces are, we won't dwell on
-  ;; the subject very much in this guide. The official
-  ;; docs make them the best justice:
+  ;; = ESPACIOS DE NOMBRES =
+  ;; Por más importantes que son los espacios de nombres, no nos detendremos mucho
+  ;; en el tema en esta guía. La documentación oficial
+  ;; les hace la mejor justicia:
   ;; https://clojure.org/reference/namespaces
   ;;
-  ;; There are some things we really need to know
-  ;; though...
-  ;; Clojure symbols are defined in namespaces (With
-  ;; the `def `special form) where they are reachable
-  ;; from any other namespace.
+  ;; Hay algunas cosas que realmente necesitamos saber
+  ;; sin embargo...
+  ;; Los símbolos de Clojure se definen en espacios de nombres (con
+  ;; la forma especial `def`) donde son accesibles
+  ;; desde cualquier otro espacio de nombres.
 
   (def foo-2 "foo")
 
-  ;; Also know that there is such a thing as the
-  ;; current namespace. (A bit like the current working
-  ;; directory in the shell.) When you evaluated the
-  ;; `def` form above, you saw where `foo-2` got
-  ;; defined.
+  ;; También debes saber que existe algo llamado el
+  ;; espacio de nombres actual. (Un poco como el directorio de trabajo
+  ;; actual en el shell.) Cuando evaluaste la
+  ;; forma `def` anterior, viste dónde quedó definido `foo-2`.
 
-  ;; When evaluating a symbol from any namespace it
-  ;; must have been defined, or the compiler will
-  ;; complain, and throw
+  ;; Al evaluar un símbolo desde cualquier espacio de nombres
+  ;; debe haber sido definido, o el compilador
+  ;; se quejará y lanzará un error
 
   foo-3
 
-  ;; The namespace also needs to have been created
+  ;; El espacio de nombres también necesita haber sido creado
 
   some-namespace/foo
 
-  ;; If you have loaded the `hello_repl.clj` file
-  ;; the `hello-repl` namespace is created and its
-  ;; top level symbols are defined.
+  ;; Si has cargado el archivo `hello_repl.clj`
+  ;; el espacio de nombres `hello-repl` se crea y sus
+  ;; símbolos de nivel superior están definidos.
 
   get-started.hello-repl/greet
 
   (get-started.hello-repl/greet "from the welcome-to-clojure namespace")
 
-  ;; If those throw, you need to first load
-  ;; `hello_repl.clj`, or at least evaluate its `ns`
-  ;; form and the `greet` form.
+  ;; Si estos lanzan errores, primero necesitas cargar
+  ;; `hello_repl.clj`, o al menos evaluar su forma `ns`
+  ;; y la forma `greet`.
 
-  ;; It is not to recommend that you rely on some
-  ;; namespace existing like this though. That makes
-  ;; your code brittle. It is better to `require`
-  ;; the namespace. If you haven't loaded it, you
-  ;; can do that in the same go:
+  ;; No es recomendable depender de que algún
+  ;; espacio de nombres exista así. Eso hace
+  ;; tu código frágil. Es mejor `require`
+  ;; el espacio de nombres. Si no lo has cargado, puedes
+  ;; hacerlo al mismo tiempo:
 
   (require 'get-started.hello-paredit :reload)
 
   get-started.hello-paredit/strict-greet
   (get-started.hello-paredit/strict-greet "World")
 
-  ;; For most Clojure code you write you will arrange
-  ;; it into separate files with one namespace each,
-  ;; and use the `ns` form (that starts most Clojure
-  ;; files) to `:require` the needed namespaces, aliasing
-  ;; them to something convenient and sometimes `:refer`
-  ;; in some of their symbols so that you can use
-  ;; them without the namespace prefix (which is the
-  ;; text before the `/`, btw, in case that wasn't
-  ;; obvious enough). Examine the `ns` form of this
-  ;; file to see why these forms compile without
-  ;; complaints:
+  ;; Para la mayoría del código Clojure que escribes organizarás
+  ;; el código en archivos separados con un espacio de nombres cada uno,
+  ;; y usarás la forma `ns` (que comienza la mayoría de los
+  ;; archivos Clojure) para `:require` los espacios de nombres necesarios, dandoles
+  ;; alias a algo conveniente y a veces `:refer`
+  ;; algunos de sus símbolos para que puedas usarlos
+  ;; sin el prefijo del espacio de nombres (que es el
+  ;; texto antes del `/`, por cierto, en caso de que no fuera
+  ;; suficientemente obvio). Examina la forma `ns` de este
+  ;; archivo para ver por qué estas formas compilan sin
+  ;; quejas:
 
-  (doc require) ; Check the output window
+  (doc require) ; Revisa la ventana de salida
   (string/split "foo:bar:baz" #":")
 
-  ;; See also:
+  ;; Ver también:
   ;; https://clojuredocs.org/clojure.core/ns
 
-  ;; Any namespace can be created at the REPL. However,
-  ;; when a namespace is required, either via the
-  ;; `require` or `use` functions, or via the `ns` form
-  ;; The Clojure Reader will look up the file addressed
-  ;; by the namespace required in the classpath. When
-  ;; doing so, dots in in the namespace name separate
-  ;; directories, and dashes will be replaced by underscores.
-  ;; Say you have a `src` in your classpath, and a file
-  ;; `src/foo/bar_baz.clj` in the project. This file should
-  ;; have an `ns` form looking like:
+  ;; Cualquier espacio de nombres puede crearse en el REPL. Sin embargo,
+  ;; cuando se requiere un espacio de nombres, ya sea a través de
+  ;; las funciones `require` o `use`, o a través de la forma `ns`,
+  ;; el Lector de Clojure buscará el archivo indicado
+  ;; por el espacio de nombres requerido en el classpath. Al
+  ;; hacerlo, los puntos en el nombre del espacio de nombres separan
+  ;; directorios, y los guiones serán reemplazados por guiones bajos.
+  ;; Digamos que tienes un `src` en tu classpath, y un archivo
+  ;; `src/foo/bar_baz.clj` en el proyecto. Este archivo debería
+  ;; tener una forma `ns` como esta:
 
   ;(ns foo.bar-baz ,,,)
 
-  ;; And you require it using something like:
+  ;; Y lo requieres usando algo como:
 
   ;(require 'foo.bar-baz)
 
-  ;; Or:
+  ;; O:
 
   ;(ns welcome-to-clojure
   ;  (:require [foo.bar-baz]))
 
-  ;; If you evaluate any of those requires, you will get an
-  ;; error message from the repl, telling you which files the
-  ;; Clojure Reader looked for to find the namespace definition.
+  ;; Si evalúas cualquiera de esos requires, obtendrás un
+  ;; mensaje de error del repl, diciéndote qué archivos buscó
+  ;; el Lector de Clojure para encontrar la definición del espacio de nombres.
 
-  ;; Two common mistakes:
-  ;; 1. Naming files using dashes instead of underscores.
-  ;; 2. Using `(require ...)` instead of `(:require)` in the
-  ;;    `ns` form.
+  ;; Dos errores comunes:
+  ;; 1. Nombrar archivos usando guiones en lugar de guiones bajos.
+  ;; 2. Usar `(require ...)` en lugar de `(:require)` en la
+  ;;    forma `ns`.
 
-  ;; The `ns` form has a lot of functionality and can be a bit
-  ;; tricky to figure out. Here's a nice cheat sheet:
+  ;; La forma `ns` tiene mucha funcionalidad y puede ser un poco
+  ;; complicada de entender. Aquí hay una hoja de trucos:
   ;; https://gist.github.com/ghoseb/287710/
 
 
-  ;; === Namespaced keywords ===
-  ;; Keywords can also be namespaced, but they are
-  ;; not really registered in a namespace, like
-  ;; symbols are, so you can just use them, regardless
+  ;; === Keywords con espacio de nombres ===
+  ;; Los keywords también pueden tener espacio de nombres, pero no
+  ;; están realmente registrados en un espacio de nombres, como
+  ;; los símbolos, por lo que puedes simplemente usarlos, independientemente
 
   :foo-whatever
   :whatever-namespace/foo
 
-  ;; The notion about the current namespace exists
-  ;; for keywords in that the double-colon prefix
-  ;; expands to `:<current-namespace>/foo`:
+  ;; La noción sobre el espacio de nombres actual existe
+  ;; para los keywords en que el prefijo de doble dos puntos
+  ;; se expande a `:<espacio-de-nombres-actual>/foo`:
 
   ::foo
 
-  ;; This is important to know about. `:foo` will
-  ;; refer to the same keyword regardless of from which
-  ;; namespace it is used. `::foo` will not.
+  ;; Es importante saberlo. `:foo` se
+  ;; referirá al mismo keyword independientemente de desde qué
+  ;; espacio de nombres se use. `::foo` no.
   )
 
 (comment
-  ;; = COLLECTIONS =
-  ;; Clojure has literal syntax for four collection types
-  ;; They evaluate to themselves.
+  ;; = COLECCIONES =
+  ;; Clojure tiene sintaxis literal para cuatro tipos de colección
+  ;; Se evalúan a sí mismos.
 
-  '(1 2 3)     ; list (a quoted list, more about this below)
+  '(1 2 3)     ; lista (una lista citada, más sobre esto abajo)
   [1 2 3]      ; vector
-  #{1 2 3}     ; set
-  {:a 1 :b 2}  ; map
+  #{1 2 3}     ; conjunto
+  {:a 1 :b 2}  ; mapa
 
-  ;; They compose
+  ;; Se componen
 
   {:foo [1 2]
    :bar #{1 2}}
 
-  ;; In Clojure we do most things with just these
-  ;; collections. Literal collections and functions.
+  ;; En Clojure hacemos la mayoría de las cosas con solo estas
+  ;; colecciones. Colecciones literales y funciones.
   )
 
 (comment
-  ;; = FUNCTIONS =
-  ;; So far you have been able to evaluate all examples.
-  ;; It's because we quoted that list.
-  ;; Actually lists look like so
+  ;; = FUNCIONES =
+  ;; Hasta ahora has podido evaluar todos los ejemplos.
+  ;; Es porque citamos esa lista.
+  ;; En realidad las listas se ven así
 
   (1 2 3)
 
-  ;; But if you evaluate that, you'll get an error:
+  ;; Pero si evalúas eso, obtendrás un error:
   ;; => class java.lang.Long cannot be cast to class
   ;;    clojure.lang.IFn
-  ;; (Of course, the linter already warned you.)
-  ;; When evaluating unquoted lists the first element
-  ;; in the list is regarded as being in ”function
-  ;; position”. That means Clojure will try to call `1`
-  ;; as a function, which won't work because it is not
-  ;; a function.
-  ;; You might be starting to suspect that a Clojure
-  ;; program is just data? Which is correct. Clojure
-  ;; code is data. Fancier, Clojure is homoiconic:
+  ;; (Por supuesto, el linter ya te advirtió.)
+  ;; Al evaluar listas sin citar, el primer elemento
+  ;; de la lista se considera en "posición de función".
+  ;; Eso significa que Clojure intentará llamar a `1`
+  ;; como una función, lo que no funcionará porque no
+  ;; es una función.
+  ;; Puede que estés empezando a sospechar que un programa Clojure
+  ;; es solo datos, ¿verdad? Lo cual es correcto. El código Clojure
+  ;; es datos. Más sofisticado, Clojure es homoicónico:
   ;; https://wiki.c2.com/?HomoiconicLanguages
-  ;; This gives great macro power, more about that below.
+  ;; Esto otorga gran poder macro, más sobre eso abajo.
 
-  ;; Here are some lists with proper functions at
-  ;; position 1:
+  ;; Aquí hay algunas listas con funciones apropiadas en
+  ;; la posición 1:
 
   (str 1 2 3 4 5 :foo)
   (< 1 2 3 4 5)
@@ -405,158 +404,157 @@ like this, if leading spaces are no-no."
   (println "From Clojure with ♥️")
   (reverse [5 4 3 2 1])
 
-  ;; Everything after the first position is
-  ;; handed to the function as arguments
+  ;; Todo después de la primera posición se
+  ;; pasa a la función como argumentos
 
-  ;; Note: I'll be referring to literals, symbols, lists,
-  ;; and other literal collections, collectively as forms,
-  ;; sometimes, sexprs:
+  ;; Nota: Me referiré a literales, símbolos, listas,
+  ;; y otras colecciones literales, colectivamente como formas,
+  ;; a veces, sexprs:
   ;; https://en.wikipedia.org/wiki/S-expression
-  ;; Above, `(str 1 2 3 4 5 :foo)` is a form, as is `str`,
-  ;; `1` and `:foo`.
+  ;; Arriba, `(str 1 2 3 4 5 :foo)` es una forma, al igual que `str`,
+  ;; `1` y `:foo`.
 
 
-  ;; You define new functions and bind them to names
-  ;; in the current namespace using the macro `defn`.
-  ;; It's a very flexible macro. Here's a simple use:
+  ;; Defines nuevas funciones y las vinvulas a nombres
+  ;; en el espacio de nombres actual usando la macro `defn`.
+  ;; Es una macro muy flexible. Aquí hay un uso simple:
 
   (defn add2
     [arg]
     (+ arg 2))
 
-  ;; It defines the function `add2` taking one argument.
-  ;; The function body calls the core functions `+`
-  ;; with the arguments `arg` and 2.
-  ;; Evaluating the form will define it and you'll see:
+  ;; Define la función `add2` que toma un argumento.
+  ;; El cuerpo de la función llama a las funciones principales `+`
+  ;; con los argumentos `arg` y 2.
+  ;; Evaluar la forma la definirá y verás:
   ;; => #'welcome-to-clojure/add2
-  ;; That's a var ”holding” the value of the function
-  ;; You can now reference the var using the symbol
-  ;; `add2`. Putting it in the function position of a
-  ;; list with 3 in the first argument position and
-  ;; evaluating the list gives us back what?
+  ;; Ese es un var que "contiene" el valor de la función
+  ;; Ahora puedes referenciar el var usando el símbolo
+  ;; `add2`. Poniéndolo en la posición de función de una
+  ;; lista con 3 en la primera posición de argumento y
+  ;; evaluando la lista, ¿qué obtenemos?
 
   (add2 3)
 
-  ;; Clojure has an extensive core library of functions
-  ;; and macros. See: https://clojuredocs.org for a
-  ;; community-driven Clojure core (and more) search engine.
+  ;; Clojure tiene una extensa biblioteca de funciones principales
+  ;; y macros. Ver: https://clojuredocs.org para un
+  ;; motor de búsqueda de Clojure core (y más) impulsado por la comunidad.
   )
 
 (comment
-  ;; = SPECIAL FORMS and MACROS =
-  ;; The core library is composed from the functions and macros
-  ;; in the library itself. Bootstrapping the library is
-  ;; a few (15-ish) built-in primitive forms,
-  ;; aka ”special forms”.
+  ;; = FORMAS ESPECIALES y MACROS =
+  ;; La biblioteca principal está compuesta de las funciones y macros
+  ;; de la propia biblioteca. Bootstrapping de la biblioteca está
+  ;; en unas pocas (alrededor de 15) formas primitivas incorporadas,
+  ;; también conocidas como "formas especiales".
 
-  ;; You have met one of these special forms already:
+  ;; Ya has conocido una de estas formas especiales:
 
   (quote (1 2 3))
 
-  ;; The doc hover of the symbol `quote` tells you that
-  ;; it is a special form.
+  ;; El doc hover del símbolo `quote` te dice que
+  ;; es una forma especial.
 
-  ;; Wondering where you met this special form before?
-  ;; I used the shorthand syntax for it then:
+  ;; ¿Te preguntas dónde conociste esta forma especial antes?
+  ;; Usé la sintaxis abreviada para ello entonces:
 
   '(1 2 3)
 
-  ;; Convince yourself they are the same with the `=` function:
+  ;; Convéncete de que son iguales con la función `=`:
 
   (= (quote (1 2 3))
      '(1 2 3))
 
-  ;; Clojure has value semantics. Any data structures
-  ;; that evaluate to the same data are equal,
-  ;; no matter how deep or big the structures are.
+  ;; Clojure tiene semántica de valores. Cualquier estructura de datos
+  ;; que se evalúe a los mismos datos es igual,
+  ;; sin importar cuán profunda o grande sea la estructura.
 
   (= [1 [1 #{1 {:a 1 :b '(:foo bar)}}]]
      [1 [1 #{1 {:a (- 3 2) :b (quote (:foo bar))}}]])
 
-  ;; ... but that was a detour, back to special forms.
-  ;; Official docs:
+  ;; ... pero ese fue un desvío, volvamos a las formas especiales.
+  ;; Documentación oficial:
   ;; https://clojure.org/reference/special_forms#_other_special_forms
 
-  ;; A very important special form is `fn` (which is
-  ;; actually four special forms, but anyway).
-  ;; Without this form we can't define new functions.
-  ;; The following form evaluates to a function which
-  ;; adds 2 to its argument.
+  ;; Una forma especial muy importante es `fn` (que en
+  ;; realidad son cuatro formas especiales, pero de todas formas).
+  ;; Sin esta forma no podemos definir nuevas funciones.
+  ;; La siguiente forma se evalúa a una función que
+  ;; suma 2 a su argumento.
 
   (fn [arg] (+ arg 2))
 
-  ;; Calling the function with the argument 3:
+  ;; Llamar a la función con el argumento 3:
 
   ((fn [arg] (+ arg 2)) 3)
 
-  ;; Another special form is `def`. It defines things,
-  ;; giving them namespaced names.
+  ;; Otra forma especial es `def`. Define cosas,
+  ;; dándoles nombres con espacio de nombres.
 
   (def foo :foo)
 
-  ;; ”Defining a thing” means that a var is created,
-  ;; holding the value, and that a symbol is bound
-  ;; to the var. Evaluating the symbol picks up the
-  ;; value from the var it is bound to.
+  ;; "Definir una cosa" significa que se crea un var,
+  ;; que contiene el valor, y que un símbolo queda vinculado
+  ;; al var. Evaluar el símbolo recoge el
+  ;; valor del var al que está vinculado.
 
   foo
 
-  ;; The var can be accessed using the `var` special
-  ;; form.
+  ;; Se puede acceder al var usando la forma especial `var`.
 
   (var foo)
 
-  ;; You will most often see the var-quote shorthand
+  ;; La mayoría de las veces verás la abreviatura var-quote
 
   #'foo
 
-  ;; With these two special forms we can define functions
+  ;; Con estas dos formas especiales podemos definir funciones
 
   (def add2-2 (fn [arg] (+ arg 2)))
   (add2-2 3)
 
-  ;; This is what the macro `defn` does. You will most
-  ;; often be defining functions like what we saw
-  ;; earlier, (when discussing the function position of
-  ;; a form):
+  ;; Esto es lo que hace la macro `defn`. La mayoría de las veces
+  ;; definirás funciones como lo vimos
+  ;; antes, (al discutir la posición de función de
+  ;; una forma):
 
   (defn add2-3
     [arg]
     (+ arg 2))
 
-  ;; We can use the function `macroexpand` to see what
-  ;; the macro produces:
+  ;; Podemos usar la función `macroexpand` para ver qué
+  ;; produce la macro:
 
   (macroexpand '(defn add2-3
                   [arg]
                   (+ arg 2)))
 
-  ;; Yet another super duper important special form:
+  ;; Otra forma especial sumamente importante:
 
   (if 'test
     'value-if-true
     'value-if-false)
 
-  ;; `macroexpand does nothing here, since `if` is not
-  ;; a macro:
+  ;; `macroexpand` no hace nada aquí, ya que `if` no es
+  ;; una macro:
 
   (macroexpand '(if test
                   value-if-true
                   value-if-false))
 
-  ;; (Nor is it a function)
+  ;; (Tampoco es una función)
 
-  ;; Fun fact: Besides `case`, all conditional and control
-  ;; flow constructs in Clojure are build using `if`:
+  ;; Dato curioso: Además de `case`, todos los condicionales y
+  ;; constructos de flujo de control en Clojure se construyen usando `if`:
 
   (macroexpand '(when test
                   value-if-true))
 
   (macroexpand '(or a b))
 
-  (require 'clojure.walk) ;; you'll need to evaluate this
+  (require 'clojure.walk) ;; necesitarás evaluar esto
 
-  (clojure.walk/macroexpand-all '(or a b)) ;; to evaluate this
+  (clojure.walk/macroexpand-all '(or a b)) ;; para evaluar esto
 
   (macroexpand '(cond
                   y value-if-y
@@ -568,11 +566,11 @@ like this, if leading spaces are no-no."
                                    z value-if-z
                                    :else value-if-x-neither-y-nor-z))
 
-  ;; A programming language needs its conditionals. But
-  ;; at the core Clojure almost makes due with only `if`.
-  ;; Almost. As I mentioned earlier, `case` is an exception.
-  ;; At least on the JVM, where Clojure uses jump tables to
-  ;; implement it:
+  ;; Un lenguaje de programación necesita sus condicionales. Pero
+  ;; en el núcleo, Clojure casi se las arregla solo con `if`.
+  ;; Casi. Como mencioné antes, `case` es una excepción.
+  ;; Al menos en la JVM, donde Clojure usa tablas de salto para
+  ;; implementarlo:
 
   (macroexpand '(case x
                   y value-if-x-is-y
@@ -580,24 +578,23 @@ like this, if leading spaces are no-no."
                   value-if-x-is-neither-y-nor-z))
 
 
-  ;; We'll return to `if` and conditionals.
+  ;; Volveremos a `if` y los condicionales.
 
   ;; == `let` ==
-  ;; `let` is a special form that lets you bind values to
-  ;; variables that will be used in the body of the form.
+  ;; `let` es una forma especial que te permite vincular valores a
+  ;; variables que se usarán en el cuerpo de la forma.
 
   (let [x 1
         y 2]
     (str x y))
 
-  ;; The bindings are provided as the first ”argument”,
-  ;; in a vector. This is a pattern that is used by
-  ;; other special forms and macros that let you define
-  ;; bindings. It is similar to the lexical scope of other
-  ;; programming languages (even if this rather is
-  ;; structural). Sibling and parent forms do not
-  ;; ”see” these bindings (they have no way they could
-  ;; possibly reach it). Here's an example:
+  ;; Los vínculos se proporcionan como el primer "argumento",
+  ;; en un vector. Este es un patrón que usan
+  ;; otras formas especiales y macros que te permiten definir
+  ;; vínculos. Es similar al ámbito léxico de otros
+  ;; lenguajes de programación (aunque esto es más bien
+  ;; estructural). Las formas hermanas y padres no
+  ;; "ven" estos vínculos (no tienen manera de hacerlo
 
   (do
     (def x :namespace-x)
@@ -608,413 +605,413 @@ like this, if leading spaces are no-no."
 
   (println "`x` _outside_ `do`: " x)
 
-  ;; As noted before in this guide, the `def` special
-  ;; form defines things ”globally”, though namespaced.
+  ;; Como se mencionó antes en esta guía, la forma especial `def`
+  ;; define cosas "globalmente", aunque con espacio de nombres.
 
-  ;; If you have followed the instructions to examine
-  ;; things mentioned here, for instance by
-  ;; ctrl/cmd-clicking the `let` symbol in the code
-  ;; snippets, you'll find that in  `core.clj`, `let`
-  ;; is defined as a macro. Never mind that. It is
-  ;; actually referred to as a special form here
+  ;; Si has seguido las instrucciones para examinar
+  ;; cosas mencionadas aquí, por ejemplo haciendo
+  ;; ctrl/cmd-clic en el símbolo `let` en los fragmentos
+  ;; de código, encontrarás que en `core.clj`, `let`
+  ;; está definido como una macro. No importa eso. Se
+  ;; hace referencia a él como una forma especial aquí
   ;; https://clojure.org/reference/special_forms#let
 
-  ;; Let's (pun unintended) wrap the special forms section
-  ;; up with noting that together with _how_ Clojure
-  ;; reads and evaluates code, the special forms make up
-  ;; the Clojure language itself. The next level och
-  ;; building blocks are macros.
+  ;; Cerremos (juego de palabras no intencionado) la sección de formas especiales
+  ;; notando que junto con _cómo_ Clojure
+  ;; lee y evalúa el código, las formas especiales forman
+  ;; el propio lenguaje Clojure. El siguiente nivel de
+  ;; bloques de construcción son las macros.
 
-  ;; But let us investigate this thing with how code
-  ;; is read first...
+  ;; Pero primero investiguemos esto sobre cómo se
+  ;; lee el código...
   )
 
 (comment
-  ;; = THE READER =
+  ;; = EL LECTOR =
   ;; https://clojure.org/reference/reader
-  ;; The Clojure Reader is responsible for reading text,
-  ;; making data from it, which is what the compiler gets.
-  ;; The Reader is where literals, symbols, strings, lists,
-  ;; vectors, maps, and sets are picked apart and
-  ;; re-assembled, figuring out what is a function,
-  ;; a macro or special form.
+  ;; El Lector de Clojure es responsable de leer texto,
+  ;; haciendo datos de él, que es lo que recibe el compilador.
+  ;; El Lector es donde los literales, símbolos, cadenas, listas,
+  ;; vectores, mapas y conjuntos se descomponen y
+  ;; vuelven a ensamblar, determinando qué es una función,
+  ;; una macro o una forma especial.
 
-  ;; In doing this whitespace plays a key role and there
-  ;; are also some extra syntax rules are in play.
+  ;; Al hacer esto, el espacio en blanco juega un papel clave y
+  ;; también hay algunas reglas de sintaxis adicionales en juego.
 
-  ;; == WHITESPACE ==
-  ;; Most things you would think counts as whitespace
-  ;; is whitespace, and then there is also that Clojure,
-  ;; being a LISP, does not need commas to separate
-  ;; list items. However, commas can be used for this
-  ;; anyway, since commas are whitespace.
+  ;; == ESPACIO EN BLANCO ==
+  ;; La mayoría de las cosas que pensarías que cuentan como espacio en blanco
+  ;; son espacio en blanco, y además Clojure,
+  ;; siendo un LISP, no necesita comas para separar
+  ;; los elementos de la lista. Sin embargo, se pueden usar comas para esto
+  ;; de todas formas, ya que las comas son espacio en blanco.
 
   (= '(1 2 3)
      '(1,2,3)
      '(1, 2, 3)
      '(1,,,,2,,,,3))
 
-  ;; (There are no operators in Clojure, `=` is a
-  ;; function. It will check for equality of all
-  ;; arguments it is passed.)
+  ;; (No hay operadores en Clojure, `=` es una
+  ;; función. Verificará la igualdad de todos
+  ;; los argumentos que se le pasen.)
 
-  ;; == LINE COMMENTS ==
-  ;; The Reader skips reading everything on a line from
-  ;; a semicolon. This is unstructured comments in
-  ;; that if you start a form
+  ;; == COMENTARIOS DE LÍNEA ==
+  ;; El Lector omite leer todo en una línea desde
+  ;; un punto y coma. Este es un comentario no estructurado
+  ;; en el sentido de que si empiezas una forma
 
   (range 1 ; 10)
-  ;; and then place a line comment so that the closing
-  ;; bracket of that form gets commented out, the
-  ;; structure breaks.
+  ;; y luego colocas un comentario de línea de manera que el corchete
+  ;; de cierre de esa forma quede comentado, la
+  ;; estructura se rompe.
          )
-  ;;     ^ Healing the structure.
+  ;;     ^ Reparando la estructura.
 
-  ;; If you remove the semicolon on the opening form
-  ;; above, make sure to also remove this closing paren.
+  ;; Si quitas el punto y coma en la forma de apertura
+  ;; de arriba, asegúrate de quitar también este paréntesis de cierre.
 
-  ;; Since everything on the line is ignored, you can
-  ;; add as many semicolons as you want.
-  ;;;;;;;;;; (skipped by the Reader)
-  ;; It's common to use two semicolons to start a full
-  ;; line comment.
+  ;; Como todo en la línea se ignora, puedes
+  ;; agregar tantos puntos y coma como quieras.
+  ;;;;;;;;;; (omitido por el Lector)
+  ;; Es común usar dos puntos y coma para iniciar un
+  ;; comentario de línea completo.
 
-  ;; == EXTRA SYNTAX ===
-  ;; We've already seen the single quote
+  ;; == SINTAXIS EXTRA ===
+  ;; Ya hemos visto la comilla simple
 
   'something
 
-  ;; Which is, as we have seen, transformed to
+  ;; Que es, como hemos visto, transformada a
 
   (quote something)
 
-  ;; `quote` is needed to stop the Reader from treating
-  ;; things as something that should be evaluated.
-  ;; See what happens if you evaluate `something`
-  ;; without the quoting:
+  ;; `quote` es necesario para evitar que el Lector trate
+  ;; las cosas como algo que debería ser evaluado.
+  ;; Mira qué pasa si evalúas `something`
+  ;; sin las comillas:
 
   something
 
-  ;; as well as the difference between evaluating these:
+  ;; así como la diferencia entre evaluar estos:
 
   (1 2 3 4)
   '(1 2 3 4)
 
-  ;; There are some more quoting, and even splicing
-  ;; symbols, which I won't cover in this guide.
+  ;; Hay algunos más de citas, e incluso de empalme
+  ;; de símbolos, que no cubriré en esta guía.
 
   ;; === Deref ===
-  ;; Clojure also has reference types, we'll discuss
-  ;; (briefly) the most common one, `atom`, later.
+  ;; Clojure también tiene tipos de referencia, discutiremos
+  ;; (brevemente) el más común, `atom`, más adelante.
 
   (def an-atom (atom [1 2 3]))
   (type an-atom)
 
-  ;; To access value from a reference:
+  ;; Para acceder al valor de una referencia:
 
   (deref an-atom)
   (type (deref an-atom))
 
-  ;; Again, `deref` is used for dereferencing a lot
-  ;; of different reference types, including futures,
+  ;; De nuevo, `deref` se usa para desreferenciar muchos
+  ;; tipos de referencia diferentes, incluyendo futures,
   ;; https://clojure.org/reference/refs
   ;; https://clojure.org/about/concurrent_programming
 
-  ;; Anyway, `deref` is so common that there is
-  ;; shorthand syntax for it
+  ;; De todas formas, `deref` es tan común que hay
+  ;; sintaxis abreviada para ello
 
   @an-atom
   (= (deref an-atom)
      @an-atom)
 
-  ;; It's a common mistake to forget to deref
+  ;; Es un error común olvidar hacer deref
 
   (first an-atom)
   (first @an-atom)
 
-  ;; === THE DISPATCHER (HASH SIGN) ===
-  ;; That hash sign shows up now and then. It has a
-  ;; special role. It is also known as Dispatch.
-  ;; Depending on what character is following it,
-  ;; different cool things happen. Some cool ones
-  ;; follow here:
+  ;; === EL DESPACHADOR (SIGNO DE ALMOHADILLA) ===
+  ;; Ese signo de almohadilla aparece de vez en cuando. Tiene un
+  ;; papel especial. También se conoce como Dispatch.
+  ;; Dependiendo de qué carácter lo sigue,
+  ;; suceden cosas diferentes e interesantes. Algunas interesantes
+  ;; a continuación:
 
-  ;; Regular expressions have literal syntax, they are
-  ;; written like strings, but with a hash sign in front
+  ;; Las expresiones regulares tienen sintaxis literal, se
+  ;; escriben como cadenas, pero con un signo de almohadilla al frente
 
   #"reg(?:ular )?exp(?:ression)?"
 
-  ;; Regexps are handled by the host platform, so they
-  ;; are Java regexps in this tutorial. If you
-  ;; evaluated the above regexp, we can test it.
+  ;; Las expresiones regulares son manejadas por la plataforma host, así que
+  ;; son expresiones regulares Java en este tutorial. Si
+  ;; evaluaste la expresión regular anterior, podemos probarla.
 
   (re-seq *1 "regexp regular expression")
 
-  ;; `*1` is a special symbol for a variable holding
-  ;; the value of the last evaluation result. It might
-  ;; be easier to get a regexp right by using it
-  ;; directly:
+  ;; `*1` es un símbolo especial para una variable que contiene
+  ;; el valor del último resultado de evaluación. Puede
+  ;; ser más fácil obtener una expresión regular correcta usándola
+  ;; directamente:
 
   (re-seq #"fooo*" "fo foo fooo")
   (re-find #"fooo*" "fo foo fooo")
 
-  ;; If the hash sign is followed by a `(`, the Reader
-  ;; will start expecting a function body.
+  ;; Si el signo de almohadilla va seguido de `(`, el Lector
+  ;; comenzará a esperar un cuerpo de función.
 
   #(+ % 2)
 
-  ;; This is special syntax for ”function literals”, a
-  ;; way to specify a function. The example above is
-  ;; equivalent to this anonymous function.
+  ;; Esta es una sintaxis especial para "literales de función", una
+  ;; forma de especificar una función. El ejemplo anterior es
+  ;; equivalente a esta función anónima.
 
   (fn [arg] (+ arg 2))
 
-  ;; Nesting function literals is forbidden activity
+  ;; Anidar literales de función está prohibido
 
   ;(#(+ % (#(- % 2) 3)))
 
-  ;; (thankfully)
+  ;; (afortunadamente)
 
-  ;; In addition to sets, regexps and function literals
-  ;; we have seen var-quotes earlier in this guide
+  ;; Además de conjuntos, expresiones regulares y literales de función
+  ;; hemos visto var-quotes antes en esta guía
 
   #'add2
 
-  ;; There was also a brief discussion about `vars`.
-  ;; You might want to revisit it and also read more
-  ;; about it, because it is a very important concept.
+  ;; También hubo una breve discusión sobre los `vars`.
+  ;; Puede que quieras revisarla y también leer más
+  ;; sobre ello, porque es un concepto muy importante.
   ;; https://clojure.org/reference/vars
 
-  ;; There is a very useful hash-dispatcher which
-  ;; is used to make the Reader ignore the next form
+  ;; Hay un despachador hash muy útil que
+  ;; se usa para hacer que el Lector ignore la siguiente forma
 
   #_(println "The reader will not send this function call
 to the compiler") "This is not ignored"
 
-  ;; To test this select the ignore marker together with
-  ;; the function call and the string, then use Alt+Enter,
-  ;; to make Calva send it all to the Reader, which will
-  ;; read it, ignore the function call, and only evaluate
-  ;; the string.
+  ;; Para probar esto selecciona el marcador de ignorar junto con
+  ;; la llamada a la función y la cadena, luego usa Alt+Enter,
+  ;; para hacer que Calva envíe todo al Lector, que
+  ;; lo leerá, ignorará la llamada a la función y solo evaluará
+  ;; la cadena.
 
-  ;; Since #_ ignores the next form it is a structural
-  ;; comment mechanism, often used to temporarily disable
-  ;; some code or some data
+  ;; Dado que #_ ignora la siguiente forma es un mecanismo de
+  ;; comentario estructural, usado frecuentemente para deshabilitar temporalmente
+  ;; algún código o algunos datos
 
   (str "a" "b" #_(str 1 2 3 [4 5 6]) "c")
 
-  ;; Ignore markers stack
+  ;; Los marcadores de ignorar se acumulan
 
   (str "a" #_#_"b" (str 1 2 3 [4 5 6]) "c")
 
-  ;; Note that the Reader _will_ read the ignored form.
-  ;; If there are syntactic errors in there, the
-  ;; Reader will get sad, complain, and stop reading.
-  ;; Select from the marker up to and including the string
-  ;; here and press Ctrl+Enter
+  ;; Ten en cuenta que el Lector _sí_ leerá la forma ignorada.
+  ;; Si hay errores sintácticos allí, el
+  ;; Lector se pondrá triste, se quejará y dejará de leer.
+  ;; Selecciona desde el marcador hasta e incluyendo la cadena
+  ;; aquí y presiona Ctrl+Enter
 
   ;#_(#(+ % (#(- % 2) 3))) "foo"
 
-  ;; Two more common #-variants you will see, and use,
-  ;; are namespaced map keyword shorthand syntax and
-  ;; tagged literals, aka, data readers. Let's start
-  ;; with the former:
+  ;; Dos variantes más comunes de # que verás y usarás
+  ;; son la sintaxis abreviada de keyword con espacio de nombres de mapa y
+  ;; los literales etiquetados, también conocidos como lectores de datos. Empecemos
+  ;; con el primero:
 
   (= #:foo {:bar 'bar
             :baz 'baz}
      {:foo/bar 'bar
       :foo/baz 'baz})
 
-  ;; Unrelated to the #: There is another shorthand for
-  ;; specifying namespaced keywords. Double colon
-  ;; keywords get namespaced with the current namespace
+  ;; No relacionado con #: Hay otra abreviatura para
+  ;; especificar keywords con espacio de nombres. Los keywords de doble dos puntos
+  ;; reciben el espacio de nombres del espacio de nombres actual
 
   ::foo
   (= ::foo :calva-getting-started.src.get-started.welcome-to-clojure/foo)
 
-  ;; Tagged literals, then. It's a way to invoke functions
-  ;; bound to the tags on the form following it.
+  ;; Los literales etiquetados, entonces. Es una forma de invocar funciones
+  ;; vinculadas a las etiquetas en la forma que los sigue.
   ;; https://clojure.org/reference/reader#tagged_literals
-  ;; They are also referred to as data readers. You can
-  ;; define your own. Here let it suffice with mentioning
-  ;; the two build in ones.
+  ;; También se conocen como lectores de datos. Puedes
+  ;; definir los tuyos propios. Aquí basta con mencionar
+  ;; los dos incorporados.
 
-  ;; #inst will convert the string it tags to an instant.
-  ;; (I.e. a moment in time)
+  ;; #inst convertirá la cadena que etiqueta a un instante.
+  ;; (Es decir, un momento en el tiempo)
 
   #inst "2018-03-28T10:48:00.000"
   (type *1)
 
-  ;; #uuid will make an UUID of the string it tags
+  ;; #uuid creará un UUID de la cadena que etiqueta
 
   #uuid "0000000-0000-0000-0000-000000000016"
   (java.util.UUID/fromString "0000000-0000-0000-0000-000000000016")
 
-  ;; You now know how to read (in the sense of you
-  ;; being a Clojure Reader) most Clojure code.
-  ;; That said, let's skip going into the syntax
-  ;; sugar and special forms for making host platform
-  ;; interop extra nice.
+  ;; Ahora sabes cómo leer (en el sentido de que tú
+  ;; eres un Lector de Clojure) la mayor parte del código Clojure.
+  ;; Dicho esto, omitamos entrar en la sintaxis
+  ;; azucarada y las formas especiales para hacer la interoperabilidad
+  ;; con la plataforma host extra agradable.
   ;; https://clojure.org/reference/java_interop
-  ;; Just a sneak peek:
+  ;; Solo un vistazo:
 
   (.before #inst "2018-03-28T10:48:00.000"
            #inst "2021-02-17T00:27:00.000")
 
-  ;; This invokes the method `before` on the date
-  ;; object for year 2018 giving it the date from
-  ;; year 2021 as argument. You'll see some little
-  ;; more Java interop in this guide and probably
-  ;; notice how available the host platform is when
-  ;; coding Clojure. The same goes for
-  ;; ClojureScript and for Clojure CLR.
+  ;; Esto invoca el método `before` en el objeto de fecha
+  ;; del año 2018, dándole la fecha del
+  ;; año 2021 como argumento. Verás un poco
+  ;; más de interoperabilidad con Java en esta guía y probablemente
+  ;; notarás cuán disponible está la plataforma host cuando
+  ;; programas en Clojure. Lo mismo aplica para
+  ;; ClojureScript y para Clojure CLR.
 
-  ;; Repeating this important resource on the Reader:
+  ;; Repitiendo este recurso importante sobre el Lector:
   ;; https://clojure.org/reference/reader
-  ;; And in addition to that, read about All Those
-  ;; Weird Characters here:
+  ;; Y además de eso, lee sobre Todos Esos
+  ;; Caracteres Raros aquí:
   ;; https://clojure.org/guides/weird_characters
   )
 
 (comment
   ;; = MACROS =
-  ;; Clojure has powerful data transformation
-  ;; capabilities. We'll touch on that a bit later.
-  ;; Here I want to highlight that this power can
-  ;; be wielded for extending the language itself.
-  ;; Since Clojure code is structured and code is
-  ;; data, Clojure can be used to produce Clojure
-  ;; code from Clojure code. It is similar to the
-  ;; preprocessor facilitates that some languages
-  ;; offer, like C's `#pragma`, but it is much more
-  ;; convenient and powerful. A lot of what you
-  ;; will learn to love and recognize as Clojure
-  ;; is actually created with Clojure, as macros.
+  ;; Clojure tiene poderosas capacidades de transformación de datos.
+  ;; Tocaremos eso un poco más adelante.
+  ;; Aquí quiero destacar que este poder puede
+  ;; usarse para extender el propio lenguaje.
+  ;; Dado que el código Clojure es estructurado y el código es
+  ;; datos, Clojure puede usarse para producir código Clojure
+  ;; a partir de código Clojure. Es similar a las
+  ;; facilidades del preprocesador que algunos lenguajes
+  ;; ofrecen, como el `#pragma` de C, pero es mucho más
+  ;; conveniente y poderoso. Mucho de lo que
+  ;; aprenderás a amar y reconocer como Clojure
+  ;; en realidad se crea con Clojure, como macros.
 
-  ;; This guide is mostly concerned with letting you
-  ;; know that macros are a thing, to help you to
-  ;; quickly realize when you are using a macro rather
-  ;; than a function. I.e. I will not go into the
-  ;; subject of how to create macros.
+  ;; Esta guía se preocupa principalmente por hacerte saber
+  ;; que las macros son una cosa, para ayudarte a
+  ;; reconocer rápidamente cuando estás usando una macro en lugar
+  ;; de una función. Es decir, no profundizaré en el
+  ;; tema de cómo crear macros.
 
-  ;; The distinction is important, because even if
-  ;; macro calls look a lot like function calls,
-  ;; macros are not first class. They can't be
-  ;; passed as arguments, or returned as results.
-  ;; More about ”first class” in the section about
-  ;; functions, later.
+  ;; La distinción es importante, porque aunque
+  ;; las llamadas a macros se parecen mucho a las llamadas a funciones,
+  ;; las macros no son de primera clase. No pueden
+  ;; pasarse como argumentos, ni devolverse como resultados.
+  ;; Más sobre "de primera clase" en la sección sobre
+  ;; funciones, más adelante.
 
   ;; == `when` ==
-  ;; Let's just briefly examine the macro`when`.
-  ;; This macro helps with writing more readable code.
-  ;; How? Let's say you want to conditionally evaluate
-  ;; something. Above you learnt that there is
-  ;; a special form named `if` that can be used for
-  ;; this. Like so:
+  ;; Examinemos brevemente la macro `when`.
+  ;; Esta macro ayuda a escribir código más legible.
+  ;; ¿Cómo? Digamos que quieres evaluar
+  ;; algo condicionalmente. Arriba aprendiste que hay
+  ;; una forma especial llamada `if` que puede usarse para
+  ;; esto. Así:
 
   (if 'this-is-true
     'evaluate-this
     'else-evaluate-this)
 
-  ;; Now say you don't have something to evaluate
-  ;; in the else case. `if` allows you to write this
+  ;; Ahora digamos que no tienes algo que evaluar
+  ;; en el caso else. `if` te permite escribir esto
 
   (if 'this-is-true
     'evaluate-this)
 
-  ;; Which is fine, but you will have to scan the
-  ;; code a bit extra to see that there is no else
-  ;; branch. Easy with this short example, but can
-  ;; get pretty hairy in real code. To address this,
-  ;; you could write:
+  ;; Lo cual está bien, pero tendrás que escanear el
+  ;; código un poco más para ver que no hay rama else.
+  ;; Fácil con este ejemplo corto, pero puede
+  ;; volverse bastante complicado en código real. Para abordar esto,
+  ;; podrías escribir:
 
   (if 'this-is-true
     'evaluate-this
     nil)
 
-  ;; But that is a bit silly, what if there was a
-  ;; way to tell the human reading the code that
-  ;; there is no else branch? There is!
+  ;; Pero eso es un poco tonto, ¿qué pasaría si hubiera una
+  ;; forma de decirle al humano que lee el código que
+  ;; no hay rama else? ¡La hay!
 
   (when 'this-is-true
     'evaluate-this)
 
-  ;; Let's look at how `when` is defined, you can
-  ;; ctrl/cmd-click `when` to navigate to where
-  ;; it is defined in Clojure `core.clj`.
-  ;; You can also use the function `macroexpand`
+  ;; Veamos cómo está definido `when`, puedes
+  ;; ctrl/cmd-clic en `when` para navegar a donde
+  ;; está definido en Clojure `core.clj`.
+  ;; También puedes usar la función `macroexpand`
 
   (macroexpand '(when 'this-is-true
                   'evaluate-this))
 
-  ;; You'll notice that `when` wraps the body in
-  ;; a `(do ...)`, which is a special form that lets
-  ;; you evaluate several expressions, returning the
-  ;; results of the last one.
+  ;; Notarás que `when` envuelve el cuerpo en
+  ;; un `(do ...)`, que es una forma especial que te permite
+  ;; evaluar varias expresiones, devolviendo los
+  ;; resultados del último.
   ;; https://clojuredocs.org/clojure.core/do
-  ;; `do` is handy when you want to have some side-
-  ;; effect going, in addition to evaluating something.
-  ;; In development this often happens when you
-  ;; want to `println` something before the result
-  ;; of the expression is evaluated and returned.
+  ;; `do` es útil cuando quieres tener algún efecto
+  ;; secundario ocurriendo, además de evaluar algo.
+  ;; En el desarrollo esto ocurre frecuentemente cuando
+  ;; quieres hacer `println` de algo antes del resultado
+  ;; de la expresión que se evalúa y devuelve.
 
   (do (println "The quick brown fox jumps over the lazy dog")
       (+ 2 2))
 
-  ;; The `when` macro let's you take advantage of that
-  ;; there is only one branch, so you can do this
+  ;; La macro `when` te permite aprovechar que
+  ;; solo hay una rama, por lo que puedes hacer esto
 
   (when 'this-is-true
     (println "The quick brown fox jumps over the lazy dog")
     (+ 2 2))
 
-  ;; Without `when` you would write:
+  ;; Sin `when` escribirías:
 
   (if 'this-is-true
     (do
       (println "The quick brown fox jumps over the lazy dog")
       (+ 2 2)))
 
-  ;; Here `when` saves us both the extra scanning for
-  ;; the else-branch and the use of `do`.
+  ;; Aquí `when` nos ahorra tanto el escaneo adicional para
+  ;; la rama else como el uso de `do`.
 
-  ;; As far as macros go, `when` is about as simple as
-  ;; they get. From two built-in special forms,
-  ;; `if` and `do`, it composes a form that helps us
-  ;; write easy to write and easy to read code.
+  ;; En cuanto a las macros, `when` es de las más simples
+  ;; que existen. A partir de dos formas especiales incorporadas,
+  ;; `if` y `do`, compone una forma que nos ayuda a
+  ;; escribir código fácil de escribir y fácil de leer.
 
   ;; == `for` ==
-  ;; The `for` macro really demonstrates how Clojure
-  ;; can be extended using Clojure. You might think
-  ;; it provides looping like the for loop in many
-  ;; other languages, but in Clojure there are no for
-  ;; loops. Instead `for` is about list comprehensions
-  ;; (if you have Python experience, yes, that kind of
-  ;; list comprehensions). Here's how to produce the
-  ;; cartesian product of two vectors, `x` and `y`:
+  ;; La macro `for` realmente demuestra cómo Clojure
+  ;; puede extenderse usando Clojure. Puede que pienses
+  ;; que proporciona bucles como el bucle for en muchos
+  ;; otros lenguajes, pero en Clojure no hay bucles for.
+  ;; En cambio, `for` trata sobre comprensiones de listas
+  ;; (si tienes experiencia con Python, sí, ese tipo de
+  ;; comprensiones de listas). Así es como producir el
+  ;; producto cartesiano de dos vectores, `x` e `y`:
 
   (for [x [1 2 3]
         y [1 2 3 4]]
     [x y])
 
-  ;; If you recall the `let` form above, and how it
-  ;; lets you bind variables to use in the body of the
-  ;; form, this is similar, only that `x` and `y` will
-  ;; get bound to each value in the sequences and the
-  ;; body will get evaluated for all combinations of
-  ;; `x` and `y`.
+  ;; Si recuerdas la forma `let` anterior, y cómo
+  ;; te permite vincular variables para usar en el cuerpo de la
+  ;; forma, esto es similar, solo que `x` e `y`
+  ;; se vincularán a cada valor en las secuencias y el
+  ;; cuerpo se evaluará para todas las combinaciones de
+  ;; `x` e `y`.
 
-  ;; All values? Well, `for` also lets you filter the
-  ;; results
+  ;; ¿Todos los valores? Bueno, `for` también te permite filtrar los
+  ;; resultados
 
   (for [x [1 2 3]
         y [1 2 3 4]
         :when (not= x y)]
     [x y])
 
-  ;; You can bind variable names in the comprehension
-  ;; to store intermediate calculations and generally
-  ;; make code more readable
+  ;; Puedes vincular nombres de variables en la comprensión
+  ;; para almacenar cálculos intermedios y generalmente
+  ;; hacer el código más legible
 
   (for [x [1 2 3]
         y [1 2 3 4]
@@ -1022,62 +1019,62 @@ to the compiler") "This is not ignored"
               d (Math/abs d')]]
     d)
 
-  ;; Is the same as:
+  ;; Es lo mismo que:
 
   (for [x [1 2 3]
         y [1 2 3 4]]
     (Math/abs (- x y)))
 
-  ;; Debatable what is more readable in this particular
-  ;; case... ¯\_(ツ)_/¯
+  ;; Discutible qué es más legible en este caso particular...
+  ;; ¯\_(ツ)_/¯
 
-  ;; A note about the variable name `d'` above:
-  ;; `d'` is just a symbol name like any other. The
-  ;; single-quote has no special meaning unless it is
-  ;; the first character
+  ;; Una nota sobre el nombre de variable `d'` anterior:
+  ;; `d'` es solo un nombre de símbolo como cualquier otro. La
+  ;; comilla simple no tiene significado especial a menos que sea
+  ;; el primer carácter
 
-  ;; Filters and bindings can be used together.
-  ;; Use both `:let` and `:when` to make this
-  ;; comprehension return a list of all `[x y]` where
-  ;; their sum is odd. The functions `+` and `odd?`
-  ;; are your friends here.
+  ;; Los filtros y los vínculos pueden usarse juntos.
+  ;; Usa tanto `:let` como `:when` para hacer que esta
+  ;; comprensión devuelva una lista de todos los `[x y]` donde
+  ;; su suma es impar. Las funciones `+` y `odd?`
+  ;; son tus amigas aquí.
 
   (for [x [1 2 3]
         y [1 2 3 4]]
     [x y])
 
-  ;; (Yes, it can be solved without `:let` or `:when`.
-  ;; Humour me. 😎)
+  ;; (Sí, puede resolverse sin `:let` ni `:when`.
+  ;; Sígueme la corriente. 😎)
 
-  ;; See https://www.youtube.com/watch?v=5lvV9ICwaMo for
-  ;; a great primer on Clojure list comprehensions
-  ;; See https://clojuredocs.org/clojure.core/for for
-  ;; example usages and tips.
+  ;; Consulta https://www.youtube.com/watch?v=5lvV9ICwaMo para
+  ;; una excelente introducción a las comprensiones de listas de Clojure
+  ;; Consulta https://clojuredocs.org/clojure.core/for para
+  ;; ejemplos de uso y consejos.
 
-  ;; Note that even though `let` and `for` look like
-  ;; functions, they are not. The compiler would not
-  ;; like it if you are passing undefined symbols to a
-  ;; function. This is legal code:
+  ;; Ten en cuenta que aunque `let` y `for` parecen
+  ;; funciones, no lo son. Al compilador no
+  ;; le gustaría que le pasaras símbolos no definidos a una
+  ;; función. Este es código legal:
 
   (let [abc 1]
     2)
 
-  ;; This isn't.
+  ;; Este no lo es.
 
   (str [abc 1]
        1)
 
-  ;; (Notice that the clj-kondo linter is marking the
-  ;; first with a warning, and the second as an error)
-  ;; Macros extend the Clojure compiler.
+  ;; (Nota que el linter clj-kondo está marcando el
+  ;; primero con una advertencia y el segundo como un error)
+  ;; Las macros extienden el compilador de Clojure.
   ;; https://clojure.org/reference/macros
 
-  ;; == Threading macros ==
-  ;; Macros can totally rearrange your code. The
-  ;; built-in ”threading” macros do this. Sometimes
-  ;; when the nesting of function(-ish) calls get
-  ;; deep it can get a bit hard to read and to keep
-  ;; track of all the parens
+  ;; == Macros de encadenamiento ==
+  ;; Las macros pueden reorganizar totalmente tu código. Las
+  ;; macros de "encadenamiento" incorporadas hacen esto. A veces
+  ;; cuando el anidamiento de llamadas a funciones (ish) se vuelve
+  ;; profundo, puede ser un poco difícil de leer y mantener
+  ;; el control de todos los paréntesis
 
   (Math/abs
    (apply -
@@ -1085,10 +1082,10 @@ to the compiler") "This is not ignored"
                [:a :b :c :d]
                (partition 2 [1 1 2 3 5 8 13 21])))))
 
-  ;; You read Clojure from the innermost expression
-  ;; and out, which gets easier with time, but an
-  ;; experienced Clojure coder would still find it
-  ;; easier to read this
+  ;; Lees Clojure desde la expresión más interna
+  ;; hacia afuera, lo que se vuelve más fácil con el tiempo, pero
+  ;; un programador Clojure experimentado todavía encontraría
+  ;; más fácil leer esto
 
   (->> [1 1 2 3 5 8 13 21]
        (partition 2)
@@ -1097,67 +1094,67 @@ to the compiler") "This is not ignored"
        (apply -)
        (Math/abs))
 
-  ;; Let's read this together. The thread-last macro,
-  ;; `->>` is used, it takes its first argument and
-  ;; places it (threads it) as the last argument to
-  ;; following function. The first such step in
-  ;; isolation:
+  ;; Leamos esto juntos. Se usa la macro thread-last,
+  ;; `->>`; toma su primer argumento y
+  ;; lo coloca (lo encadena) como el último argumento en la
+  ;; función siguiente. El primer paso de este modo en
+  ;; aislamiento:
 
   (->> [1 1 2 3 5 8 13 21]
        (partition 2))
 
-  ;; The first argument/element passed to `->>` is
+  ;; El primer argumento/elemento pasado a `->>`  es
   ;; `[1 1 2 3 5 8 13 21]`
-  ;; This is inserted as the last element of the
-  ;; function call `(partition 2)`, yielding:
+  ;; Se inserta como el último elemento de la
+  ;; llamada a la función `(partition 2)`, generando:
 
   (partition 2 [1 1 2 3 5 8 13 21])
 
-  ;; This partitions the list into lists of
-  ;; 2 elements => `((1 1) (2 3) (5 8) (13 21))`
-  ;; This new list is then inserted (threaded)
-  ;; as the last argument to the next function,
-  ;; yielding:
+  ;; Esto particiona la lista en listas de
+  ;; 2 elementos => `((1 1) (2 3) (5 8) (13 21))`
+  ;; Esta nueva lista se inserta luego (encadena)
+  ;; como el último argumento a la siguiente función,
+  ;; generando:
 
   (zipmap [:a :b :c :d] '((1 1) (2 3) (5 8) (13 21)))
 
-  ;; Which ”zips” together a Clojure map using
-  ;; the first list as keys and the second list
-  ;; as values
+  ;; Lo cual "comprime" juntos un mapa Clojure usando
+  ;; la primera lista como claves y la segunda lista
+  ;; como valores
   ;; => `{:a (1 1), :b (2 3), :c (5 8), :d (13 21)}`
-  ;; This map is then threaded as the last argument
-  ;; to the function `:d`
+  ;; Este mapa se encadena luego como el último argumento
+  ;; a la función `:d`
 
   (:d '{:a (1 1), :b (2 3), :c (5 8), :d (13 21)})
 
-  ;; (In clojure keywords are functions that look
-  ;;  themselves up in the map handed to them.)
+  ;; (En Clojure los keywords son funciones que se buscan
+  ;;  a sí mismos en el mapa que se les pasa.)
   ;; => `(13 21)`
-  ;; You know the drill by now, this is threaded
+  ;; Ya sabes cómo funciona, esto se encadena
 
   (apply - '(13 21))
 
-  ;; Which applies the `-` function over the list
+  ;; Lo cual aplica la función `-` sobre la lista
   ;; => `-8`
-  ;; Then this is threaded to `Math/abs`
+  ;; Luego esto se encadena a `Math/abs`
 
   (Math/abs -8)
   ;; 🎉
 
-  ;; (In many Clojure capable editors, including
-  ;; Calva, there are commands for ”unwinding”
-  ;; a thread, and for converting a nested
-  ;; expressions into a thread. Search for ”thread”
-  ;; among the commands.)
+  ;; (En muchos editores capaces de Clojure, incluyendo
+  ;; Calva, hay comandos para "desenrollar"
+  ;; un encadenamiento, y para convertir expresiones
+  ;; anidadas en un encadenamiento. Busca "thread"
+  ;; entre los comandos.)
   ;; https://github.com/clojure-emacs/clj-refactor.el/wiki/cljr-unwind-all
 
-  ;; There is also a thread-first macro
+  ;; También hay una macro thread-first
   ;; `->` https://clojuredocs.org/clojure.core/-%3E
-  ;; Sometimes you neither want to thread first
-  ;; or last. There is a macro for this too.
-  ;; `as->` lets you bind a variable name to the
-  ;; threaded thing and place it wherever you
-  ;; fancy in each function call.
+  ;; A veces no quieres encadenar ni primero
+  ;; ni último. También hay una macro para esto.
+  ;; `as->` te permite vincular un nombre de variable al
+  ;; elemento encadenado y colocarlo donde
+  ;; desees en cada llamada a función.
 
   (as-> 15 foo
     (range 1 foo 3)
@@ -1165,93 +1162,93 @@ to the compiler") "This is not ignored"
 
   ;; https://clojuredocs.org/clojure.core/as-%3E
 
-  ;; It's common to utilize the fact that most characters
-  ;; are available when naming Clojure symbols. I often
-  ;; use `$` for this threading macro:
+  ;; Es común aprovechar el hecho de que la mayoría de los caracteres
+  ;; están disponibles al nombrar símbolos Clojure. A menudo
+  ;; uso `$` para esta macro de encadenamiento:
 
   (as-> 15 $
     (range 1 $ 3)
     (interpose ":" $))
 
-  ;; Others use other names 😄
+  ;; Otros usan otros nombres 😄
 
   (as-> 15 <>
     (range 1 <> 3)
     (interpose ":" <>))
 
-  ;; I think emojis should be avoided, the official
-  ;; docs only mention alphanumerics plus:
-  ;; `*`, `+`, `!`, `-`, `_`, `'`, `?`, `<`, `>`, and `=`
-  ;; (so not even `$`) but here goes:
+  ;; Creo que los emojis deberían evitarse, la documentación oficial
+  ;; solo menciona alfanuméricos más:
+  ;; `*`, `+`, `!`, `-`, `_`, `'`, `?`, `<`, `>`, y `=`
+  ;; (así que ni siquiera `$`) pero aquí vamos:
 
   (as-> 15 ❤️
     (range 1 ❤️ 3)
     (interpose ":" ❤️))
 
-  ;; Other core threading macros are:
-  ;; `cond->`, `cond->>`, `some->`, and `some->>`
+  ;; Otras macros de encadenamiento principales son:
+  ;; `cond->`, `cond->>`, `some->`, y `some->>`
   ;; https://clojuredocs.org/clojure.core/cond-%3E
 
-  ;; Please feel encouraged to copy the examples
-  ;; from ClojureDocs here and play with them.
-  ;; Here's one:
+  ;; Por favor, siéntete animado a copiar los ejemplos
+  ;; de ClojureDocs aquí y jugar con ellos.
+  ;; Aquí hay uno:
 
-  (cond-> 1        ; we start with 1
-    true inc       ; the condition is true so (inc 1) => 2
-    false (* 42)   ; the condition is false so the operation is skipped
-    (= 2 2) (* 3)) ; (= 2 2) is true so (* 2 3) => 6
+  (cond-> 1        ; empezamos con 1
+    true inc       ; la condición es true así que (inc 1) => 2
+    false (* 42)   ; la condición es false así que la operación se omite
+    (= 2 2) (* 3)) ; (= 2 2) es true así que (* 2 3) => 6
 
-  ;; See ”Threading with Style” by Stuart Sierra
-  ;; for idiomatic use of the threading facilities.
+  ;; Consulta "Threading with Style" de Stuart Sierra
+  ;; para el uso idiomático de las facilidades de encadenamiento.
   ;; https://stuartsierra.com/2018/07/06/threading-with-style
   )
 
-;; With special forms, the special syntax of the Reader,
-;; and macros, the foundations of what is the Clojure
-;; language you use are laid. You can of course extend
-;; the language further with libraries including macros
-;; or create your own. However the core language, with
-;; its macros is very expressive. Taking data oriented
-;; approaches is often enough. Even to prefer, rather
-;; than creating more macros.
+;; Con las formas especiales, la sintaxis especial del Lector,
+;; y las macros, se sientan los fundamentos de lo que es el lenguaje Clojure
+;; que usas. Por supuesto, puedes extender
+;; el lenguaje con bibliotecas que incluyen macros
+;; o crear las tuyas. Sin embargo, el lenguaje principal, con
+;; sus macros es muy expresivo. Tomar enfoques orientados a datos
+;; a menudo es suficiente. Incluso preferible, en lugar
+;; de crear más macros.
 
-;; On to flow control!
+;; ¡Al flujo de control!
 
 (comment
-  ;; = Flow Control, Conditionals, Branching =
-  ;; Clojure is richer than most languages in what it
-  ;; offers us to let our programs flow the way we want
-  ;; them to. Almost all the core library features for
-  ;; this are implemented using the primitive (special
-  ;; form) `if`. This is still the staple for us as
-  ;; Clojure coders. It takes three forms as its
-  ;; arguments:
-  ;; 1. A condition to evaluate
-  ;; 2. What to evaluate if the condition evaluates
-  ;;    to something true (truthy)
-  ;; 3. The form to evaluate if the condition does not
-  ;;    evaluate to something truthy (the ”else” branch)
-  ;; Roll this die, some ten-twenty times, checking if
-  ;; it is a six:
+  ;; = Flujo de Control, Condicionales, Ramificaciones =
+  ;; Clojure es más rico que la mayoría de los lenguajes en lo que
+  ;; nos ofrece para dejar que nuestros programas fluyan de la manera que
+  ;; queremos. Casi todas las características de la biblioteca principal para
+  ;; esto se implementan usando la primitiva (forma
+  ;; especial) `if`. Esta sigue siendo la base para nosotros como
+  ;; programadores Clojure. Toma tres formas como sus
+  ;; argumentos:
+  ;; 1. Una condición para evaluar
+  ;; 2. Qué evaluar si la condición se evalúa
+  ;;    a algo verdadero (truthy)
+  ;; 3. La forma para evaluar si la condición no
+  ;;    se evalúa a algo truthy (la rama "else")
+  ;; Lanza este dado unas diez o veinte veces, verificando si
+  ;; es un seis:
 
   (if (= 6 (inc (rand-int 6)))
     "One time out of six you get a six"
     "Five times out of six you get something else")
 
-  ;; Since there are no statements in Clojure `if` is
-  ;; the equivalent to the ternary `if` expression you
-  ;; find in C and many other languages:
+  ;; Dado que no hay declaraciones en Clojure, `if` es
+  ;; el equivalente a la expresión ternaria `if` que
+  ;; encuentras en C y muchos otros lenguajes:
   ;;   test ? true-expression : false-expression
-  ;; Pseudo code for our dice:
+  ;; Pseudocódigo para nuestro dado:
   ;;   int(rand() * 6) + 1 == 6 ?
   ;;     "One time out of six you get a six" :
   ;;     "Five times out of six you get something else";
 
-  ;; == The Search for Truth ==
-  ;; Again, in Clojure we use expressions evaluating to
-  ;; values. When examined for branching all values
-  ;; are either truthy or falsy. In fact, almost all
-  ;; values are truthy
+  ;; == La Búsqueda de la Verdad ==
+  ;; De nuevo, en Clojure usamos expresiones que se evalúan a
+  ;; valores. Cuando se examinan para ramificación, todos los valores
+  ;; son ya sea truthy o falsy. De hecho, casi todos
+  ;; los valores son truthy
 
   (if true :truthy :falsy)
   (if :foo :truthy :falsy)
@@ -1259,23 +1256,22 @@ to the compiler") "This is not ignored"
   (if 0 :truthy :falsy)
   (if "" :truthy :falsy)
 
-  ;; The only falsy values are `false` and `nil`
+  ;; Los únicos valores falsy son `false` y `nil`
 
   (if false :truthy :falsy)
   (if nil :truthy :falsy)
   (when false :truthy)
 
-  ;; About that last one: `when` evaluates to `nil`
-  ;; when the condition is falsy. Since `nil` is
-  ;; falsy the above `when` expression would be
-  ;; making the ”else” branch of an `if` to be
-  ;; evaluated
+  ;; Sobre ese último: `when` se evalúa a `nil`
+  ;; cuando la condición es falsy. Dado que `nil` es
+  ;; falsy, la expresión `when` anterior haría que
+  ;; se evaluara la rama "else" de un `if`
 
   (if (when false :truthy) :true :falsy)
 
-  ;; (Super extra bad code, but anyway)
-  ;; When only boolean truth or falsehood can cut
-  ;; it for you, there is the `true?` function
+  ;; (Código muy, muy malo, pero de todas formas)
+  ;; Cuando solo la verdad o falsedad booleana puede
+  ;; servir, existe la función `true?`
 
   (true? true)
   (true? 0)
@@ -1283,34 +1279,34 @@ to the compiler") "This is not ignored"
   (true? nil)
   (true? false)
 
-  ;; Thus
+  ;; Por lo tanto
 
   (if (true? 0) :true :false)
 
   ;; == `when` ==
-  ;; As mentioned before, `when` is a one-branch
-  ;; `if`, only for the truthy branch, which is
-  ;; wrapped in a `do` for you. Try this and then
-  ;; try it replacing the `when` with an `if`:
+  ;; Como se mencionó antes, `when` es un `if` de una sola rama,
+  ;; solo para la rama truthy, que está
+  ;; envuelta en un `do` por ti. Prueba esto y luego
+  ;; prueba reemplazando el `when` con un `if`:
 
   (when :truthy
     (println "That sounds true to me")
     :truthy-for-you)
 
-  ;; If the `when` condition is not truthy,
-  ;; `nil` will be returned.
+  ;; Si la condición `when` no es truthy,
+  ;; se devolverá `nil`.
 
   (when nil :true-enough?)
 
   ;; == `cond` ==
-  ;; Since deeply nested if/else structures can be
-  ;; hard to write, read, and maintain, Clojure core
-  ;; offers several more constructs for flow control,
-  ;; one very common such is the `cond` macro. It
-  ;; takes pairs of condition/result forms, tests
-  ;; each condition, if it is true, then the result
-  ;; form is evaluated and ”returned”, short-circuiting
-  ;; so that no more condition is tested.
+  ;; Ya que las estructuras if/else profundamente anidadas pueden ser
+  ;; difíciles de escribir, leer y mantener, el núcleo de Clojure
+  ;; ofrece varios constructos más para el flujo de control,
+  ;; uno muy común es la macro `cond`. Toma
+  ;; pares de formas condición/resultado, prueba
+  ;; cada condición, si es verdadera, entonces la forma resultado
+  ;; se evalúa y "devuelve", cortocircuitando
+  ;; para que no se pruebe más condición.
 
   (let [dice-roll (inc (rand-int 6))]
     (cond
@@ -1318,27 +1314,27 @@ to the compiler") "This is not ignored"
       (odd? dice-roll) (str "An odd roll " dice-roll " is")
       :else            (str "Not six, nor odd, instead: " dice-roll)))
 
-  ;; The `:else` is just the keyword `:else` which
-  ;; evaluates to itself and is truthy. It is the
-  ;; conventional way to give your cond forms a
-  ;; default value. Without a default clause, the
-  ;; form would evaluate to `nil` for anything not-six
-  ;; not-odd. Try it by placing two ignore markers
-  ;; (`#_ #_`) in front of the `:else` keyword.
+  ;; El `:else` es solo el keyword `:else` que
+  ;; se evalúa a sí mismo y es truthy. Es la
+  ;; forma convencional de dar a tus formas cond un
+  ;; valor predeterminado. Sin una cláusula predeterminada, la
+  ;; forma se evaluaría a `nil` para cualquier valor que no sea seis
+  ;; ni impar. Pruébalo colocando dos marcadores de ignorar
+  ;; (`#_ #_`) frente al keyword `:else`.
 
-  ;; Gotta love ClojureDocs
+  ;; Hay que amar ClojureDocs
   ;; https://clojuredocs.org/clojure.core/cond
-  ;; Paste examples from there here and play around:
+  ;; Pega ejemplos de allí aquí y juega:
 
-  ;; See also links to `cond->` info above
+  ;; Ver también los enlaces a información de `cond->` arriba
 
   ;; == `case` ==
-  ;; A bit similar to `switch/case` constructs in
-  ;; other languages, Clojure core has the `case`
-  ;; macro which takes a test expression, followed by
-  ;; zero or more clauses (pairs) of test constant/expr,
-  ;; followed by an optional expr. (However, the body
-  ;; after the test expression may not be empty.)
+  ;; Un poco similar a los constructos `switch/case` en
+  ;; otros lenguajes, el núcleo de Clojure tiene la macro `case`
+  ;; que toma una expresión de prueba, seguida de
+  ;; cero o más cláusulas (pares) de constante-de-prueba/expr,
+  ;; seguida de una expr opcional. (Sin embargo, el cuerpo
+  ;; después de la expresión de prueba no puede estar vacío.)
 
   (let [test-str "foo bar"]
     (case test-str
@@ -1346,8 +1342,8 @@ to the compiler") "This is not ignored"
       "baz"     :baz
       (count    test-str)))
 
-  ;; The trailing expression, if any, is ”returned” as
-  ;; the default value.
+  ;; La expresión final, si la hay, se "devuelve" como
+  ;; el valor predeterminado.
 
   (let [test-str "foo bar"]
     (case test-str
@@ -1355,8 +1351,8 @@ to the compiler") "This is not ignored"
       "baz"     :baz
       (count    test-str)))
 
-  ;; If no clause matches and there is no default,
-  ;; a run time error happens
+  ;; Si ninguna cláusula coincide y no hay predeterminado,
+  ;; ocurre un error en tiempo de ejecución
 
   (let [test-str "foo bar"]
     (case test-str
@@ -1364,9 +1360,9 @@ to the compiler") "This is not ignored"
       "baz"     :baz
       #_(count    test-str)))
 
-  ;; WATCH OUT! A test constant must be a compile
-  ;; time literal, and the compiler won't  help you
-  ;; find bugs like this:
+  ;; ¡CUIDADO! Una constante de prueba debe ser un literal en tiempo de
+  ;; compilación, y el compilador no te ayudará a encontrar
+  ;; errores como este:
 
   (let [test-int 2
         two 2]
@@ -1376,29 +1372,29 @@ to the compiler") "This is not ignored"
       (str test-int ": Probably not expected")))
 
   ;; https://clojuredocs.org/clojure.core/case
-  ;; Paste some `case` examples here and experiment
+  ;; Pega algunos ejemplos de `case` aquí y experimenta
 
-  ;; The Functional Design in Clojure podcast has a
-  ;; fantastic episode about branching
+  ;; El podcast Functional Design in Clojure tiene un
+  ;; episodio fantástico sobre ramificaciones
   ;; https://clojuredesign.club/episode/089-branching-out/
 
-  ;; == Less branching is good, right? ==
-  ;; The core library is rich with functions that
-  ;; helps you avoid writing branching code. Instead
-  ;; you provide the condition as a predicate.
-  ;; An often used predicate function is `filter`
+  ;; == Menos ramificación es bueno, ¿verdad? ==
+  ;; La biblioteca principal es rica en funciones que
+  ;; te ayudan a evitar escribir código de ramificación. En cambio
+  ;; proporcionas la condición como un predicado.
+  ;; Una función predicado usada frecuentemente es `filter`
 
   (filter even? [0 1 2 3 4 5 6 7 8 9 10 11 12])
 
-  ;; and its ”sibling” `remove`
+  ;; y su "hermano" `remove`
 
   (remove odd? [0 1 2 3 4 5 6 7 8 9 10 11 12])
 
-  ;; Filtering sequences of values is a common task
-  ;; and your programming time can instead be used
-  ;; to decide _how_ it should be filtered, by writing
-  ;; the predicate. Sometimes you don't even need to
-  ;; do that, Clojure core is rich with predicates
+  ;; Filtrar secuencias de valores es una tarea común
+  ;; y tu tiempo de programación puede usarse
+  ;; para decidir _cómo_ debe filtrarse, escribiendo
+  ;; el predicado. A veces ni siquiera necesitas
+  ;; hacerlo, Clojure core es rico en predicados
 
   (zero? 0)
   (even? 0)
@@ -1412,71 +1408,70 @@ to the compiler") "This is not ignored"
   (indexed? [1 2 3])
   (indexed? '(1 2 3))
 
-  ;; What's a predicate? For the purpose of this guide
-  ;; A predicate is a function testing things for
-  ;; truthiness. It is convention that these functions
-  ;; end with `?`. Many take only one argument.
+  ;; ¿Qué es un predicado? Para los propósitos de esta guía,
+  ;; un predicado es una función que prueba cosas para
+  ;; su truthiness. Es convención que estas funciones
+  ;; terminen con `?`. Muchas toman solo un argumento.
 
-  ;; A handy predicate is `some?` which tests for
-  ;; "somethingness”, if it is not `nil` it is
-  ;; something
+  ;; Un predicado útil es `some?` que prueba
+  ;; "algidad", si no es `nil` es
+  ;; algo
 
   (some? nil)
   (some? false)
   (some? '())
 
-  ;; You can use it to test for if something is `nil`
-  ;; by wrapping it in a call to the `not` function
+  ;; Puedes usarlo para probar si algo es `nil`
+  ;; envolviéndolo en una llamada a la función `not`
 
   (not (some? nil))
   (not (some? false))
 
-  ;; You get the urge to define a function named `nil?`,
-  ;; right? You don't have to
+  ;; Te dan ganas de definir una función llamada `nil?`,
+  ;; ¿verdad? No tienes que hacerlo
 
   (nil? nil)
   (nil? false)
 
-  ;; Clojure core also contains predicates that take
-  ;; a predicate plus a collection to apply it on.
-  ;; Such as `every?`
+  ;; Clojure core también contiene predicados que toman
+  ;; un predicado más una colección para aplicarlo.
+  ;; Como `every?`
 
   (every? nat-int? [0 1 2])
   (every? nat-int? [-1 0 1 2])
 
-  ;; Check the docs for `nat-int? and come up
-  ;; with some more lists to test, like
+  ;; Revisa los docs de `nat-int?` y crea
+  ;; algunas listas más para probar, como
 
-  (every? nat-int? [0 1 2N]) ; 2N is not fixed precision
+  (every? nat-int? [0 1 2N]) ; 2N no es precisión fija
   (doc nat-int?)
 
-  ;; This pattern with functions that take functions
-  ;; as argument is common in Clojure. It spans beyond
-  ;; predicates. Functions that take functions as
-  ;; arguments are referred to as ”higher order
-  ;; functions”.
+  ;; Este patrón con funciones que toman funciones como
+  ;; argumento es común en Clojure. Se extiende más allá de
+  ;; los predicados. Las funciones que toman funciones como
+  ;; argumentos se denominan funciones de "orden superior".
   ;; https://en.wikipedia.org/wiki/Higher-order_function
   )
 
 (comment
-  ;; = Functions =
-  ;; Before diving into higher order functions, let's
-  ;; look at functions. Functions are first class
-  ;; Clojure citizens and the main building blocks for
-  ;; solving your business problems.
+  ;; = Funciones =
+  ;; Antes de profundizar en las funciones de orden superior, veamos
+  ;; las funciones. Las funciones son ciudadanos de primera clase
+  ;; en Clojure y los principales bloques de construcción para
+  ;; resolver tus problemas de negocio.
 
-  ;; We have seen a few ways you can create functions.
-  ;; Here's an anonymous function that returns the
-  ;; integer given to it, unless it is divisible by
-  ;; 15, in which case it returns "fizz buzz".
-  ;; (Not the full Fizz Buzz problem by any means.)
+  ;; Hemos visto algunas formas de crear funciones.
+  ;; Aquí hay una función anónima que devuelve el
+  ;; entero que se le da, a menos que sea divisible por
+  ;; 15, en cuyo caso devuelve "fizz buzz".
+  ;; (De ninguna manera el problema completo de Fizz Buzz.)
 
   (fn [n]
     (if (zero? (mod n 15))
       "fizz buzz"
       n))
 
-  ;; Let's define it (bind it to a symbol we can use)
+  ;; Definámosla (vinculémosla a un símbolo que podamos usar)
 
   (def fizz-buzz-1 (fn [n]
                      (if (zero? (mod n 15))
@@ -1485,8 +1480,8 @@ to the compiler") "This is not ignored"
   (fizz-buzz-1 2)
   (fizz-buzz-1 15)
 
-  ;; There's a macro that lets us define and create
-  ;; the function in one call
+  ;; Hay una macro que nos permite definir y crear
+  ;; la función en una sola llamada
 
   (defn fizz-buzz-2 [n]
     (if (zero? (mod n 15))
@@ -1495,8 +1490,8 @@ to the compiler") "This is not ignored"
 
   (fizz-buzz-2 4)
 
-  ;; `defn` lets us provide documentation for the
-  ;; function
+  ;; `defn` nos permite proporcionar documentación para la
+  ;; función
 
   (defn fizz-buzz-3
     "Says 'fizz buzz' if `n` is divisible by 15,
@@ -1506,11 +1501,11 @@ to the compiler") "This is not ignored"
       "fizz buzz"
       n))
 
-  (doc fizz-buzz-3) ; (or hover `fizz-buzz-3`)
+  (doc fizz-buzz-3) ; (o pasa el cursor sobre `fizz-buzz-3`)
 
-  ;; It is easy to place the doc string wrong,
-  ;; especially since it is common to write the `defn`
-  ;; form like we did with `fizz-buzz-2` above.
+  ;; Es fácil colocar el doc string incorrectamente,
+  ;; especialmente ya que es común escribir la forma `defn`
+  ;; como lo hicimos con `fizz-buzz-2` arriba.
 
   (defn fizz-buzz-4
     [n]
@@ -1520,14 +1515,14 @@ to the compiler") "This is not ignored"
       "fizz buzz"
       n))
 
-  ;; This specifies a fully valid function body, so
-  ;; Clojure won't complain about it. But:
+  ;; Esto especifica un cuerpo de función completamente válido, así que
+  ;; Clojure no se quejará de ello. Pero:
 
   (doc fizz-buzz-4)
 
-  ;; clj-kondo's default configuration will help you
-  ;; spot these errors. However, it can't help with
-  ;; this:
+  ;; La configuración predeterminada de clj-kondo te ayudará a
+  ;; detectar estos errores. Sin embargo, no puede ayudar con
+  ;; esto:
 
   (defn only-the-last-eval-returns [x]
     [1 x]
@@ -1535,31 +1530,29 @@ to the compiler") "This is not ignored"
 
   (only-the-last-eval-returns "foo")
 
-  ;; It is easy enough to spot like this and also to
-  ;; wonder why you would ever write a function that
-  ;; way. Yet you probably will make this mistake,
-  ;; especially if you ever write some Hiccup, which
-  ;; is a super nice way of writing HTML with Clojure
-  ;; data structures. It's used by the popular Reagent
-  ;; library
+  ;; Es fácil detectarlo así y también preguntarse
+  ;; por qué escribirías una función de
+  ;; esa manera. Sin embargo, probablemente cometerás este error,
+  ;; especialmente si alguna vez escribes Hiccup, que es
+  ;; una manera muy buena de escribir HTML con estructuras de datos Clojure.
+  ;; Lo usa la popular biblioteca Reagent
   ;; https://purelyfunctional.tv/guide/reagent/#hiccup
-  ;; When you do the mistake and finish your hour-long
-  ;; bug hunt, you will hear this guide whisper
-  ;;   ”Called it!”
+  ;; Cuando cometas el error y termines tu búsqueda
+  ;; de errores de una hora, escucharás a esta guía susurrar
+  ;;   "¡Lo sabía!"
 
-  ;; The argument binding vector of `fn` (and
-  ;; therefore `defn`) binds each argument in order
-  ;; to a name.
+  ;; El vector de vinculación de argumentos de `fn` (y
+  ;; por lo tanto `defn`) vincula cada argumento en orden
+  ;; a un nombre.
 
   (defn coords->str [x y]
     (str "x: " x ", y: " y))
 
-  ;; == Variadic Functions ==
-  ;; You can define functions that take an arbitrary
-  ;; number of arguments by placing a `&` in front
-  ;; of the last argument name. That binds the name
-  ;; to a sequence that contains all the remaining
-  ;; arguments.
+  ;; == Funciones Variádicas ==
+  ;; Puedes definir funciones que toman un número arbitrario
+  ;; de argumentos colocando un `&` frente
+  ;; al nombre del último argumento. Eso vincula el nombre
+  ;; a una secuencia que contiene todos los argumentos restantes.
 
   (defn lead+members [lead & members]
     {:lead lead
@@ -1570,11 +1563,11 @@ to the compiler") "This is not ignored"
                 "Nick Menza"
                 "David Ellefson")
 
-  ;; == Multi-arity ==
-  ;; Clojure supports function signatures based on
-  ;; the number of arguments. The `defn` macro lets
-  ;; you define each arity as a separate list. This
-  ;; is often used to provide default values
+  ;; == Multi-aridad ==
+  ;; Clojure admite firmas de funciones basadas en
+  ;; el número de argumentos. La macro `defn` te permite
+  ;; definir cada aridad como una lista separada. Esto
+  ;; se usa frecuentemente para proporcionar valores predeterminados
 
   (defn hello
     ([] (hello "World"))
@@ -1583,9 +1576,9 @@ to the compiler") "This is not ignored"
   (hello)
   (hello "Clojure Friend")
 
-  ;; Or to create an ”identity” value for a function,
-  ;; (A starting value that the rest of the operation
-  ;; uses.) Say you want to add two x-y coordinates
+  ;; O para crear un valor de "identidad" para una función,
+  ;; (Un valor de inicio que usa el resto de la operación.)
+  ;; Digamos que quieres sumar dos coordenadas x-y
 
   (defn add-coords-1 [coord-1 coord-2]
     {:x (+ (:x coord-1)
@@ -1596,16 +1589,16 @@ to the compiler") "This is not ignored"
   (add-coords-1 {:x -2 :y 10}
                 {:x 4 :y 6})
 
-  ;; What if the requirements were that if the
-  ;; function is called with one argument it should
-  ;; add it to the origin? (See what I did there?
-  ;; The identity value is where the function
-  ;; should start, so start from the origin. 😎)
-  ;; We can see that `add-coords-1` fails here
+  ;; ¿Qué pasaría si los requisitos fueran que si la
+  ;; función se llama con un argumento debe
+  ;; sumarlo al origen? (¿Ves lo que hice allí?
+  ;; El valor de identidad es donde debe empezar la función,
+  ;; así que empieza desde el origen. 😎)
+  ;; Podemos ver que `add-coords-1` falla aquí
 
   (add-coords-1 {:x -2 :y 10})
 
-  ;; we need to add a one-arity
+  ;; necesitamos agregar una aridad de un argumento
 
   (defn add-coords-2
     ([coord]
@@ -1620,55 +1613,55 @@ to the compiler") "This is not ignored"
 
   (add-coords-2 {:x -2 :y 10})
 
-  ;; Now if called with no arguments it should
-  ;; return the origin, because if you do not add
-  ;; any coordinate you stay at the start.
-  ;; Write a function `add-coords-3` that returns
-  ;; the origin when called like this
+  ;; Ahora si se llama sin argumentos debería
+  ;; devolver el origen, porque si no agregas
+  ;; ninguna coordenada te quedas en el inicio.
+  ;; Escribe una función `add-coords-3` que devuelva
+  ;; el origen cuando se llama así
 
   (add-coords-3)
 
-  ;; It should still handle to be called like this
+  ;; Aún debería poder llamarse así
 
   (add-coords-3 {:x 3 :y 4})
   (add-coords-3 {:x 2 :y 4}
                 {:x -4 :y -4})
 
-  ;; It has to do with making the function compose
-  ;; with other functions. E.g. the `apply` function
-  ;; which is a higher order function that ”applies”
-  ;; a function over a sequence. Right now we can
-  ;; apply our `add-coords-2` function like this
+  ;; Tiene que ver con hacer que la función se componga
+  ;; con otras funciones. Por ejemplo, la función `apply`
+  ;; que es una función de orden superior que "aplica"
+  ;; una función sobre una secuencia. Ahora mismo podemos
+  ;; aplicar nuestra función `add-coords-2` así
 
   (apply add-coords-2 [{:x 1 :y 1} {:x 4 :y 4}])
 
-  ;; And like this
+  ;; Y así
 
   (apply add-coords-2 [{:x 1 :y 1}])
 
-  ;; But not like this
+  ;; Pero no así
 
   (apply add-coords-2 [])
 
-  ;; But the `add-coords-3` function you created can
+  ;; Pero la función `add-coords-3` que creaste sí puede
 
   (apply add-coords-3 [])
 
-  ;; It will not handle an arbitrary long sequence
-  ;; of coords, though. For that we would need one
-  ;; more arity like so
+  ;; No manejará una secuencia arbitrariamente larga
+  ;; de coordenadas, sin embargo. Para eso necesitaríamos una
+  ;; aridad más así
 
   (defn add-coords-4
-    ;; add zero-arity from your `add-coords-3` here
-    ;; add one-arity from your `add-coords-3` here
+    ;; agrega la aridad de cero argumentos de tu `add-coords-3` aquí
+    ;; agrega la aridad de un argumento de tu `add-coords-3` aquí
     ([coord-1 coord-2]
      {:x (+ (:x coord-1)
             (:x coord-2))
       :y (+ (:y coord-1)
             (:y coord-2))})
     ([coord-1 coord-2 & more-coords]
-     ;; Implement this arity when you have learnt
-     ;; about the higher order function `reduce`
+     ;; Implementa esta aridad cuando hayas aprendido
+     ;; sobre la función de orden superior `reduce`
      ))
 
   (apply add-coords-4 [{:x 1 :y 1}
@@ -1676,18 +1669,18 @@ to the compiler") "This is not ignored"
                        {:x 1 :y 1}
                        {:x -6 :y -6}])
 
-  ;; Listen to Eric Normand explain in more detail
-  ;; why the identity of a function is important:
+  ;; Escucha a Eric Normand explicar con más detalle
+  ;; por qué es importante la identidad de una función:
   ;; https://lispcast.com/what-is-a-functions-identity/
 
-  ;; == Closures ==
-  ;; When you create functions on the fly, lambdas,
-  ;; if you like, you use either the `fn` special
-  ;; form directly, or by proxy with the `#()` syntax.
-  ;; This creates a closure, like it does in JavaScript
-  ;; and other languages. That is, these function can
-  ;; access snapshots of variables with the values they
-  ;; had when the function was created
+  ;; == Cierres ==
+  ;; Cuando creas funciones sobre la marcha, lambdas,
+  ;; si quieres, usas ya sea la forma especial `fn`
+  ;; directamente, o por delegación con la sintaxis `#()`.
+  ;; Esto crea un cierre, como lo hace en JavaScript
+  ;; y otros lenguajes. Es decir, estas funciones pueden
+  ;; acceder a instantáneas de variables con los valores que
+  ;; tenían cuando se creó la función
 
   (defn named-coords-factory [name]
     (fn [x y] {:name name
@@ -1701,9 +1694,9 @@ to the compiler") "This is not ignored"
   (fred-coords-fn 5 5)
   (bob-coords-fn 7 7)
 
-  ;; Closures are handy to create low-arity functions
-  ;; inside let binding boxes for the function body
-  ;; to use:
+  ;; Los cierres son útiles para crear funciones de baja aridad
+  ;; dentro de cajas de vinculación let para que las use el cuerpo
+  ;; de la función:
 
   (defn whisper-or-yell-or-ask [command sentence]
     (let [whisper (fn []
@@ -1720,22 +1713,22 @@ to the compiler") "This is not ignored"
         "?" (ask)
         (default))))
 
-  ;; All functions created in the let binding box
-  ;; ”close in” the `command` and the `sentence` so
-  ;; the `case` can be kept terse and readable.
+  ;; Todas las funciones creadas en la caja de vinculación let
+  ;; "cierran" el `command` y la `sentence` para que
+  ;; el `case` pueda mantenerse conciso y legible.
 
   (whisper-or-yell-or-ask "" "How wOnDerFuLLY NIce To seE")
   (whisper-or-yell-or-ask "!" "Hello tHERE")
   (whisper-or-yell-or-ask "?" "How are you doing")
   (whisper-or-yell-or-ask ":" "Oh well")
 
-  ;; == The Attributes Map ==
-  ;; The `defn` macro lets you add attributes to the
-  ;; function in the form of a map. This gets added
-  ;; as meta-data (some little more on that later)
-  ;; to the var holding the function. The map goes
-  ;; after the function name, and after any docs,
-  ;; and before the arguments vector (or any arities)
+  ;; == El Mapa de Atributos ==
+  ;; La macro `defn` te permite agregar atributos a la
+  ;; función en forma de un mapa. Esto se agrega
+  ;; como metadatos (un poco más sobre eso después)
+  ;; al var que contiene la función. El mapa va
+  ;; después del nombre de la función, y después de cualquier documentación,
+  ;; y antes del vector de argumentos (o cualquier aridad)
 
   (defn i-have-attributes
     {:doc "Docs can be added like this too"
@@ -1746,8 +1739,8 @@ to the compiler") "This is not ignored"
   (doc i-have-attributes)
   (meta #'i-have-attributes)
 
-  ;; One handy attribute you can add is a test
-  ;; function. Test runners will pick this up
+  ;; Un atributo útil que puedes agregar es una función de prueba.
+  ;; Los ejecutores de pruebas lo detectarán
 
   (defn fizz-buzz-5
     "That limited fizz-buzz function again"
@@ -1760,9 +1753,9 @@ to the compiler") "This is not ignored"
       n))
 
   (clojure.test/test-var #'fizz-buzz-5)
-  ;; Oops! You'll need to fix the bugs. 😀
+  ;; ¡Ups! Necesitarás corregir los errores. 😀
 
-  ;; How about implementing the complete Fizz Buzz?
+  ;; ¿Qué tal implementar el Fizz Buzz completo?
   ;; https://en.wikipedia.org/wiki/Fizz_buzz
 
   (defn fizz-buzz
@@ -1782,113 +1775,113 @@ to the compiler") "This is not ignored"
   (clojure.test/test-var #'fizz-buzz)
   (map fizz-buzz (range 1 40))
 
-  ;; The meta-data that has special meaning to
-  ;; the compiler and various Clojure core
-  ;; facilities is listed here:
+  ;; Los metadatos que tienen significado especial para
+  ;; el compilador y varios componentes principales de Clojure
+  ;; se listan aquí:
   ;; https://clojure.org/reference/special_forms
 
-  ;; Now, on to higher order functions!
+  ;; ¡Ahora, a las funciones de orden superior!
   )
 
 (comment
-  ;; = Higher order functions =
-  ;; A big contribution to what makes Clojure such a
-  ;; powerful language is that functions are
-  ;; ”first-class”
+  ;; = Funciones de orden superior =
+  ;; Una gran contribución a lo que hace a Clojure un
+  ;; lenguaje tan poderoso es que las funciones son
+  ;; "de primera clase"
   ;; https://en.wikipedia.org/wiki/First-class_function
-  ;; They can be values in collections (also keys
-  ;; in maps) and can be passed as arguments to other
-  ;; functions, and ”returned ”as results from
-  ;; evaluations. You might be familiar with the
-  ;; concept from languages like JavaScript.
+  ;; Pueden ser valores en colecciones (también claves
+  ;; en mapas) y pueden pasarse como argumentos a otras
+  ;; funciones, y "devolverse" como resultados de
+  ;; evaluaciones. Puede que estés familiarizado con el
+  ;; concepto de lenguajes como JavaScript.
 
-  ;; Let's look at some higher order functions in
-  ;; Clojure core. `some` calls the function on the
-  ;; elements of its collection, one-by-one, and
-  ;; returns the first truthy result, and will return
-  ;; `nil` if the list is exhausted before some element
-  ;; results in something truthy.
+  ;; Veamos algunas funciones de orden superior en
+  ;; Clojure core. `some` llama a la función en los
+  ;; elementos de su colección, uno por uno, y
+  ;; devuelve el primer resultado truthy, y devolverá
+  ;; `nil` si la lista se agota antes de que algún elemento
+  ;; resulte en algo truthy.
 
   (some even? [1 1 2 3 5 8 13 21])
 
-  ;; Not to be confused with `some?`, which is not
-  ;; a higher order function.
+  ;; No hay que confundirla con `some?`, que no es
+  ;; una función de orden superior.
 
   (some some? [nil false])
   (some some? [nil nil])
 
-  ;; A common idiom in Clojure is to look for things
-  ;; in collection using a `set` as the predicate.
-  ;; Yes, sets are functions. Used as functions they
-  ;; will look up the argument given to them in
-  ;; themselves.
+  ;; Un idioma común en Clojure es buscar cosas
+  ;; en una colección usando un `set` como predicado.
+  ;; Sí, los conjuntos son funciones. Usados como funciones,
+  ;; buscarán el argumento dado en
+  ;; ellos mismos.
 
   (#{"foo" "bar"} "bar")
 
-  ;; Thus
+  ;; Por lo tanto
 
   (some #{"foo"} ["foo" "bar" "baz"])
   (some #{"fubar"} ["foo" "bar" "baz"])
 
-  ;; `apply` takes a function and a collection and
-  ;; ”applies” the function on the collection. Say you
-  ;; have a collection of numbers and want to add them.
-  ;; This won't work:
+  ;; `apply` toma una función y una colección y
+  ;; "aplica" la función en la colección. Digamos que
+  ;; tienes una colección de números y quieres sumarlos.
+  ;; Esto no funcionará:
 
   (+ [1 1 2 3 5 8 13 21])
 
-  ;; `apply` to the rescue
+  ;; `apply` al rescate
 
   (apply + [1 1 2 3 5 8 13 21])
 
-  ;; Concatenate the numbers as a string:
+  ;; Concatenar los números como una cadena:
 
   (apply str [1 1 2 3 5 8 13 21])
 
-  ;; Contrast with
+  ;; Contrasta con
 
   (str [1 1 2 3 5 8 13 21])
 
-  ;; We've also seen `filter` and `remove` above, two
-  ;; very commonly used higher order functions. They
-  ;; play in the same league as `map`, and `reduce`.
-  ;; Read on. 😎
+  ;; También hemos visto `filter` y `remove` arriba, dos
+  ;; funciones de orden superior muy comúnmente usadas. Juegan
+  ;; en la misma liga que `map` y `reduce`.
+  ;; Sigue leyendo. 😎
   )
 
 (comment
-  ;; = `map` and `reduce` =
-  ;; Among the higher order functions you might have
-  ;; used in other languages with first class
-  ;; functions are `map` and `reduce`. They are worth
-  ;; studying and practicing in much detail, here's
-  ;; a super nice teaser:
+  ;; = `map` y `reduce` =
+  ;; Entre las funciones de orden superior que puede que hayas
+  ;; usado en otros lenguajes con funciones de primera clase
+  ;; están `map` y `reduce`. Vale la pena
+  ;; estudiarlos y practicarlos con mucho detalle, aquí hay
+  ;; un adelanto muy agradable:
   ;; https://purelyfunctional.tv/courses/3-functional-tools/
 
-  ;; Let's also check them out briefly here.
-  ;; `map` calls a function on the elements of one or
-  ;; more collection from start to end and returns a
-  ;; (lazy, more on that later) sequence of the results
-  ;; in the same order. Let's say we want to decrement
-  ;; each element in a list of numbers by one
+  ;; Veámoslos también brevemente aquí.
+  ;; `map` llama a una función en los elementos de una o
+  ;; más colecciones de principio a fin y devuelve una
+  ;; secuencia (perezosa, más sobre eso después) de los resultados
+  ;; en el mismo orden. Digamos que queremos decrementar
+  ;; cada elemento en una lista de números en uno
 
   (map dec '(1 1 2 3 5 8 13 21))
 
-  ;; Let's say we then want to dec them again
+  ;; Digamos que luego queremos decrementarlos de nuevo
 
   (->> '(1 1 2 3 5 8 13 21)
        (map dec)
        (map dec))
 
-  ;; Hmmm, better to subtract by two, maybe?
+  ;; Hmm, ¿mejor restar dos, quizás?
 
   (map (fn [n] (- n 2)) '(1 1 2 3 5 8 13 21))
 
-  ;; If you give `map` more collections to work on
-  ;; it will repeatedly:
-  ;; 1. pick the next item from each collection
-  ;; 2. give them to the mapping function as arguments
-  ;; 3. add the result to its return sequence
-  ;; Until the shortest collection is exhausted
+  ;; Si le das a `map` más colecciones para trabajar
+  ;; repetidamente:
+  ;; 1. tomará el siguiente elemento de cada colección
+  ;; 2. los dará a la función de mapeo como argumentos
+  ;; 3. agregará el resultado a su secuencia de retorno
+  ;; Hasta que se agote la colección más corta
 
   (map + [1 2 3] '(0 2 4 6 8))
   (map (fn [n1 s n2] (str n1 ": " s "-" n2))
@@ -1896,78 +1889,77 @@ to the compiler") "This is not ignored"
        ["foo" "bar" "baz"]
        (range 2 -1 -1))
 
-  ;; (We haven't talked much about `range`, it is a
-  ;; function producing sequences of numbers. Given no
-  ;; arguments it produces an infinite, watch out 😀,
-  ;; sequence of integers
+  ;; (No hemos hablado mucho de `range`, es una
+  ;; función que produce secuencias de números. Sin
+  ;; argumentos produce una secuencia infinita, ¡cuidado! 😀,
+  ;; de enteros
   ;; 0, 0+1, 0+2, 0+3, 0+4, 0+5, 0.6 ...
-  ;; Good thing the other sequences got exhausted!)
+  ;; ¡Menos mal que las otras secuencias se agotaron!)
 
-  ;; A lot of the tasks you might solve with `for`
-  ;; loops in other languages, are solved with `map`
-  ;; in Clojure.
+  ;; Muchas de las tareas que podrías resolver con bucles `for`
+  ;; en otros lenguajes, se resuelven con `map`
+  ;; en Clojure.
 
-  ;; With other such ”for loopy” tasks you will
-  ;; be wielding `reduce`. Unlike `map` it is not
-  ;; limited to producing results of the same length
-  ;; or shape as the input collection. Instead it
-  ;; accumulates a result of any shape. For instance,
-  ;; it can create a string from a collection of
-  ;; numbers
+  ;; Con otras tareas "de tipo bucle for" usarás
+  ;; `reduce`. A diferencia de `map`, no está
+  ;; limitado a producir resultados de la misma longitud
+  ;; o forma que la colección de entrada. En cambio,
+  ;; acumula un resultado de cualquier forma. Por ejemplo,
+  ;; puede crear una cadena a partir de una colección de
+  ;; números
 
   (reduce (fn [acc n]
             (str acc ":" n))
           [1 1 2 3 5 8 13 21])
 
-  ;; `reduce` will call the function with two
-  ;;  arguments: the result of the last function
-  ;;  call and the next number from the list. The
-  ;;  start of the process is special, since then
-  ;;  there are no results yet. `reduce` has two
-  ;;  ways to deal with this, two arities to be
-  ;;  specific. Called with two arguments, it
-  ;;  uses the two first elements from the list
-  ;;  for the first function call.
-  ;;  Here's reducing the `+` function using the
-  ;;  two-arity version of `reduce`
+  ;; `reduce` llamará a la función con dos
+  ;;  argumentos: el resultado de la última llamada a la función
+  ;;  y el siguiente número de la lista. El
+  ;;  inicio del proceso es especial, ya que entonces
+  ;;  no hay resultados todavía. `reduce` tiene dos
+  ;;  formas de manejar esto, dos aridades en concreto.
+  ;;  Llamada con dos argumentos, usa
+  ;;  los dos primeros elementos de la lista
+  ;;  para la primera llamada a la función.
+  ;;  Aquí está reduciendo la función `+` usando la
+  ;;  versión de dos aridades de `reduce`
 
   (reduce + [1 1 2 3 5 8 13 21])
 
-  ;;  The process then starts with calling `+`
-  ;;  like so
+  ;;  El proceso entonces comienza llamando a `+`
+  ;;  así
 
   (+ 1 1)
 
-  ;; Giving `reduce` three arguments makes it use
-  ;; the second argument as the starting ”result”.
+  ;; Dar a `reduce` tres argumentos hace que use
+  ;; el segundo argumento como el "resultado" inicial.
 
   (reduce + 100 [1 1 2 3 5 8 13 21])
 
-  ;; You might have noticed that the `+` function
-  ;; takes more (and less) than 2 arguments.
+  ;; Puede que hayas notado que la función `+`
+  ;; toma más (y menos) de 2 argumentos.
 
   (+)
   (+ 1)
   (+ 1 1)
   (+ 1 1 2 3 5 8 13 21)
 
-  ;; `+` will take the first argument, if any, and
-  ;; add it to ”the current” value (which is zero),
-  ;; then the next argument and add that to the new
-  ;; current value, and so on, and so forth, until
-  ;; there is a result. This process sounds a bit
-  ;; like I just described a reduce, right?
-  ;; In fact it is.
+  ;; `+` tomará el primer argumento, si lo hay, y
+  ;; lo sumará al valor "actual" (que es cero),
+  ;; luego el siguiente argumento y lo sumará al nuevo
+  ;; valor actual, y así sucesivamente, hasta que
+  ;; haya un resultado. Este proceso suena un poco
+  ;; como si acabara de describir una reducción, ¿verdad?
+  ;; De hecho lo es.
 
-  ;; If we were to implement the `+` function, how
-  ;; could we do it? We could start by implementing
-  ;; something that adds two numbers together, then
-  ;; use it as as the reducing function with
+  ;; Si fuéramos a implementar la función `+`, ¿cómo
+  ;; podríamos hacerlo? Podríamos comenzar implementando
+  ;; algo que sume dos números juntos, luego
+  ;; usarlo como función reductora con
   ;; `reduce`.
-  ;; Of course, now we have the task of adding two
-  ;; numbers together, without using the existing
-  ;; `+` function... 🤔 SICP has this one, using
-  ;; Peano Arithmetics
+  ;; Por supuesto, ahora tenemos la tarea de sumar dos
+  ;; números, sin usar la función `+` existente...
+  ;; 🤔 SICP tiene esto, usando Aritmética de Peano
   ;; https://youtu.be/V_7mmwpgJHU?t=814
   ;; https://en.wikipedia.org/wiki/Peano_axioms#Addition
 
@@ -1976,50 +1968,49 @@ to the compiler") "This is not ignored"
       y
       (plus (dec x) (inc y))))
 
-  ;; But there are too many cases not handled here...
-  ;; Hmmm... Let's keep it simple and only do
-  ;; integer math. Then we can use Java's
-  ;; `Integer.sum(x, y)` method.
+  ;; Pero hay demasiados casos que no se manejan aquí...
+  ;; Hmm... Mantengámoslo simple y solo hagamos
+  ;; matemáticas con enteros. Entonces podemos usar el método
+  ;; `Integer.sum(x, y)` de Java.
 
   (Integer/sum 1 1)
 
-  ;; Awesome, with this we can create an `add-two`
-  ;; function
+  ;; Genial, con esto podemos crear una función `add-two`
 
   (defn add-two [x y]
     (Integer/sum x y))
   (add-two 1 1)
 
-  ;; Unlike `+`, this one is not fully composable
-  ;; with a higher order function like apply
+  ;; A diferencia de `+`, esta no es completamente componible
+  ;; con una función de orden superior como apply
 
   (apply add-two [])
   (apply add-two [1])
   (apply add-two [1 1])
   (apply add-two [1 1 2 3 5 8 13 21])
 
-  ;; We need `add-many`. With `reduce` and our
-  ;; `add-two` we can define `add-many` like so
+  ;; Necesitamos `add-many`. Con `reduce` y nuestro
+  ;; `add-two` podemos definir `add-many` así
 
   (defn add-many [& numbers]
     (reduce add-two numbers))
-  ;; That does it, right?
+  ;; Eso lo resuelve, ¿verdad?
 
   (apply add-many [1])
   (apply add-many [1 1])
   (apply add-many [1 1 2 3 5 8 13 21])
 
-  ;; What about the zero-arity version of `+`, you
-  ;; ask? Correct, that will blow up
+  ;; ¿Qué pasa con la versión de cero aridades de `+`,
+  ;; preguntas? Correcto, eso explotará
 
   (add-many)
 
-  ;; The built-in `+` function has a default ”current”
-  ;; value of zero, remember? We can add that to
-  ;; `add-many` in two ways: Either add a zero-arity
-  ;; signature, or use the three-arity `reduce`. Let's
-  ;; go for the latter option, since we are learning
-  ;; about reduce here:
+  ;; La función `+` incorporada tiene un valor "actual" predeterminado
+  ;; de cero, ¿recuerdas? Podemos agregar eso a
+  ;; `add-many` de dos formas: O agregar una firma de cero aridades,
+  ;; o usar la aridad de tres argumentos de `reduce`. Vamos
+  ;; por la última opción, ya que estamos aprendiendo
+  ;; sobre reduce aquí:
 
   (defn add* [& numbers]
     (reduce add-two 0 numbers))
@@ -2030,43 +2021,43 @@ to the compiler") "This is not ignored"
 
   ;; BOOM.
 
-  ;; We can use it with `apply` as well:
+  ;; También podemos usarla con `apply`:
   (apply add* [])
   (apply add* [1])
   (apply add* [1 1])
   (apply add* [1 1 2 3 5 8 13 21])
 
-  ;; Or `reduce`:
+  ;; O `reduce`:
   (reduce add* [])
   (reduce add* [1])
   (reduce add* [1 1])
   (reduce add* [1 1 2 3 5 8 13 21])
 
-  ;; Apart from that we only handle integers, our `add*`
-  ;; is very much like how `+` is implemented in
-  ;; Clojure core. Check it out (in the output window):
+  ;; Aparte de que solo manejamos enteros, nuestro `add*`
+  ;; es muy parecido a cómo está implementado `+` en
+  ;; Clojure core. Revísalo (en la ventana de salida):
 
   (source +)
 
-  ;; Hmmm, well, they seem to be using multi-arity
-  ;; function signatures for the low-arity cases, probably
-  ;; because of the casting, but anyway, 😀
+  ;; Hmm, bueno, parece que usan firmas de funciones
+  ;; de múltiples aridades para los casos de baja aridad, probablemente
+  ;; por el casting, pero de todas formas, 😀
 
-  ;; There's one more thing with `reduce` we want to
-  ;; mention. When writing reducing functions you can
-  ;; stop the process before the input sequence is
-  ;; exhausted, using the `reduced` function. Say we
-  ;; want the input sequence as a string separated by
-  ;; `:`, as above, but stop when we see a `nil` item.
-  ;; Here's the last version for comparison:
+  ;; Hay una cosa más con `reduce` que queremos
+  ;; mencionar. Al escribir funciones reductoras puedes
+  ;; detener el proceso antes de que se agote la secuencia de entrada,
+  ;; usando la función `reduced`. Digamos que
+  ;; queremos la secuencia de entrada como una cadena separada por
+  ;; `:`, como arriba, pero detenerse cuando veamos un elemento `nil`.
+  ;; Aquí está la última versión para comparar:
 
   (reduce (fn [acc n]
             (str acc ":" n))
           [1 1 2 3 5 8 nil 13 21])
 
-  ;; We can short circuit the process by calling
-  ;; `reduced` with the accumulated value when we
-  ;; encounter a `nil` item
+  ;; Podemos cortocircuitar el proceso llamando
+  ;; a `reduced` con el valor acumulado cuando
+  ;; encontramos un elemento `nil`
 
   (reduce (fn [acc n]
             (if (nil? n)
@@ -2074,122 +2065,121 @@ to the compiler") "This is not ignored"
               (str acc ":" n)))
           [1 1 2 3 5 8 nil 13 21])
 
-  ;; Here is what is going on
+  ;; Esto es lo que está pasando
 
   (doc reduced)
 
-  ;; Reducing is a mighty important concept in Clojure
-  ;; since it is a ”functional first” language. Or as
-  ;; it is worded in this Functional Design episode
+  ;; Reducir es un concepto muy importante en Clojure
+  ;; ya que es un lenguaje "funcional primero". O como
+  ;; se dice en este episodio de Functional Design
   ;; https://clojuredesign.club/episode/058-reducing-it-down/
-  ;; ”Reducing functions are a backbone of functional
-  ;; programming, because we don’t have mutation.”
+  ;; "Las funciones reductoras son la columna vertebral de la
+  ;; programación funcional, porque no tenemos mutación."
 
-  ;; In fact in Clojure reducing is so important that
-  ;; Rich Hickey has added a whole library with reducers
-  ;; packing even more punch
+  ;; De hecho en Clojure reducir es tan importante que
+  ;; Rich Hickey ha agregado una biblioteca completa con reductores
+  ;; con aún más potencia
   ;; https://clojure.org/reference/reducers
-  ;; Again, the Functional Design duo, Nate Jones, and
-  ;; Christoph Neumann have examined this library
-  ;; a bit:
+  ;; De nuevo, el dúo de Functional Design, Nate Jones, y
+  ;; Christoph Neumann han examinado esta biblioteca
+  ;; un poco:
   ;; https://clojuredesign.club/episode/060-reduce-done-quick/
-  ;; Amazing quote from that episode:
-  ;;   “The seq abstraction, it’s rather lazy.”
+  ;; Cita asombrosa de ese episodio:
+  ;;   "La abstracción seq, es bastante perezosa."
 
-  ;; We are not going down the rabbit hole of the
-  ;; `reducers` library, though...
+  ;; No vamos a caer en el agujero de conejo de la
+  ;; biblioteca `reducers`, sin embargo...
   )
 
-;; ... Instead we are picking up that Nate and
-;; Christoph mention three super important concepts
-;; in those two above quotes.
-;; * immutability
-;; * the `seq` abstraction
-;; * laziness
-;; They are related, and maybe it is best to start with
-;; immutability...
+;; ... En cambio estamos recogiendo que Nate y
+;; Christoph mencionan tres conceptos súper importantes
+;; en esas dos citas anteriores.
+;; * inmutabilidad
+;; * la abstracción `seq`
+;; * pereza
+;; Están relacionados, y tal vez sea mejor empezar con
+;; la inmutabilidad...
 
 (comment
-  ;; = Immutability =
-  ;; It is rather crazy that we have been talking about
-  ;; Clojure for this long without discussing how
-  ;; it encourages us to avoid mutating our data as
-  ;; it is being processed. Clojurians never shut up
-  ;; about immutability, right? We can almost sound
-  ;; like Rothbardians in defining ourselves as
-  ;; Enemies of the State 😄
+  ;; = Inmutabilidad =
+  ;; Es bastante sorprendente que hayamos estado hablando sobre
+  ;; Clojure durante tanto tiempo sin discutir cómo
+  ;; nos alienta a evitar mutar nuestros datos a medida
+  ;; que se procesan. Los clojuristas nunca nos callamos
+  ;; sobre la inmutabilidad, ¿verdad? Casi podemos sonar
+  ;; como rothbardianos al definirnos como
+  ;; Enemigos del Estado 😄
   ;; https://www.youtube.com/watch?v=qe60zwUAOqE
 
-  ;; This is to some extent true, as Clojurians we
-  ;; often try to stay in a data transformation mode
-  ;; for the duration of an operation and only deal
-  ;; with the impure world, at the ”boundaries”. at
-  ;; the start we might be reading some input, and
-  ;; at the end we might be updating a database,
-  ;; printing the results to a file (or to the
-  ;; screen), or mutating the DOM of a web page.
+  ;; Esto es hasta cierto punto verdad, como clojuristas
+  ;; frecuentemente intentamos mantenernos en un modo de transformación de datos
+  ;; durante la duración de una operación y solo tratamos
+  ;; con el mundo impuro, en los "límites": al
+  ;; inicio podemos estar leyendo alguna entrada, y
+  ;; al final podemos estar actualizando una base de datos,
+  ;; imprimiendo los resultados en un archivo (o en la
+  ;; pantalla), o mutando el DOM de una página web.
 
-  ;; Clojure encourages us to walk the immutable
-  ;; path in many ways, two of which I am going
-  ;; to mention a bit here:
-  ;; * Persistent Data Structures
-  ;; * Pure Functions
+  ;; Clojure nos alienta a caminar por el
+  ;; camino inmutable de muchas maneras, dos de las cuales voy
+  ;; a mencionar un poco aquí:
+  ;; * Estructuras de Datos Persistentes
+  ;; * Funciones Puras
 
-  ;; == Persistent Data Structures ==
-  ;; Clojure helps us to stay in immutable land by
-  ;; providing us with immutable data structures.
-  ;; The implementation of these is called Persistent
-  ;; Data Structure:
+  ;; == Estructuras de Datos Persistentes ==
+  ;; Clojure nos ayuda a mantenernos en la tierra inmutable
+  ;; proporcionándonos estructuras de datos inmutables.
+  ;; La implementación de estas se llama Estructura de Datos Persistente:
   ;; https://en.wikipedia.org/wiki/Persistent_data_structure
-  ;; In effect it means that the data structures are
-  ;; never changed, The functions we use to transform
-  ;; them actually create copies. (In a very smart
-  ;; way, so don't you start worrying now.)
+  ;; En efecto significa que las estructuras de datos nunca
+  ;; cambian. Las funciones que usamos para transformarlas
+  ;; en realidad crean copias. (De una manera muy inteligente,
+  ;; así que no empieces a preocuparte ahora.)
 
-  ;; Say we define a a vector of some digits
+  ;; Digamos que definimos un vector de algunos dígitos
 
   (def eighteen [1 0 0 1 0])
   eighteen
 
-  ;; Now we want to change that last `0` to a `1`
-  ;; We can use the `assoc` function. When used on
-  ;; a vector, takes an index and the new value
+  ;; Ahora queremos cambiar ese último `0` a un `1`
+  ;; Podemos usar la función `assoc`. Cuando se usa en
+  ;; un vector, toma un índice y el nuevo valor
 
   (def nineteen (assoc eighteen 4 1))
   nineteen
 
-  ;; Examining `eighteen` again ...
+  ;; Examinando `eighteen` de nuevo...
 
   eighteen
 
-  ;; ... we see that it is still true to its name.
-  ;; Associng a `1` at index 4 of it created a
-  ;; copy, which was then defined as `nineteen`
+  ;; ... vemos que sigue siendo fiel a su nombre.
+  ;; Asociar un `1` en el índice 4 creó una
+  ;; copia, que luego se definió como `nineteen`
 
-  ;; Perhaps obvious, this stands true in local
-  ;; bindings as well.
+  ;; Quizás obvio, esto también se cumple en los vínculos
+  ;; locales.
 
   (let [origin {:x 0
                 :y 0}
         x-travel (assoc origin :x 100)]
     [origin x-travel])
 
-  ;; This provides for a very deterministic program
-  ;; flow. Data does not willy-nilly change under our
-  ;; feet. And, transformation processes that do not
-  ;; mutate state are much easier to parallelize,
-  ;; other threads can't change the data you are
-  ;; transforming. A whole category of bugs never get
-  ;; the chance to hatch!
+  ;; Esto proporciona un flujo de programa muy determinista.
+  ;; Los datos no cambian caprichosamente bajo nuestros
+  ;; pies. Y los procesos de transformación que no
+  ;; mutan el estado son mucho más fáciles de paralelizar,
+  ;; otros hilos no pueden cambiar los datos que estás
+  ;; transformando. ¡Una categoría entera de errores nunca
+  ;; tiene la oportunidad de eclosionar!
 
-  ;; Another benefit we get from immutability is
-  ;; that Clojure can efficiently offer us value
-  ;; equality. Values are immutable, by definition.
-  ;; In Clojure, even the deepest data structures can
-  ;; be compared in less than a jiffy.
+  ;; Otro beneficio que obtenemos de la inmutabilidad es
+  ;; que Clojure puede ofrecer eficientemente igualdad de valores.
+  ;; Los valores son inmutables, por definición.
+  ;; En Clojure, incluso las estructuras de datos más profundas pueden
+  ;; compararse en un instante.
 
-  ;; Let's show this with a not so deep structure
-  ;; (except in the name)
+  ;; Mostremos esto con una estructura no tan profunda
+  ;; (excepto en el nombre)
 
   (def universa {:one {"Alice" {:x 100
                                 :y 100
@@ -2207,11 +2197,11 @@ to the compiler") "This is not ignored"
   (= (:one universa)
      (:two universa))
 
-  ;; `update-in` is a higher order function for
-  ;;  transforming data structures given an
-  ;;  ”address” and a function. We can use it
-  ;;  to make two-Bob find two-Alice, just like
-  ;;  one-Bob and one-Alice have found each other
+  ;; `update-in` es una función de orden superior para
+  ;;  transformar estructuras de datos dada una
+  ;;  "dirección" y una función. Podemos usarla
+  ;;  para hacer que dos-Bob encuentre a dos-Alice, igual que
+  ;;  uno-Bob y uno-Alice se han encontrado
 
   (def unified-universa
     (update-in universa [:two "Bob" :z] inc))
@@ -2222,67 +2212,65 @@ to the compiler") "This is not ignored"
 
   (= universa unified-universa)
 
-  ;; You'll never have to write an `equals()`
-  ;; method again! 😄
+  ;; ¡Nunca más tendrás que escribir un método `equals()`! 😄
 
-  ;; Immutability also makes our programs different
-  ;; than they are when you can change the value of
-  ;; a variable at will. It can take a while to get
-  ;; used to this. (I am still at the point where I
-  ;; have an easier time to see mutating solutions
-  ;; to many problems. It is less and less so, but
-  ;; anyway. Probably you will grok it quicker than
-  ;; I am doing.)
+  ;; La inmutabilidad también hace que nuestros programas sean diferentes
+  ;; de lo que son cuando puedes cambiar el valor de
+  ;; una variable a voluntad. Puede llevar un tiempo acostumbrarse
+  ;; a esto. (Yo todavía estoy en el punto donde
+  ;; me resulta más fácil ver soluciones mutantes a
+  ;; muchos problemas. Cada vez menos, pero
+  ;; de todas formas. Probablemente lo comprenderás más rápido que
+  ;; yo.)
 
-  ;; It is totally worth it to insist on getting it.
-  ;; The payoff is huge. If you are only going to
-  ;; check out one of the resources I am recommending
-  ;; in this guide, I suggest it be this one about
-  ;; solving problems the Clojure way, by Rafal
+  ;; Definitivamente vale la pena insistir en comprenderlo.
+  ;; La recompensa es enorme. Si solo vas a
+  ;; revisar uno de los recursos que recomiendo
+  ;; en esta guía, sugiero que sea este sobre
+  ;; resolver problemas a la manera Clojure, de Rafal
   ;; Dittwald:
   ;; https://www.youtube.com/watch?v=vK1DazRK_a0
-  ;; Spoiler: He is not using Clojure in the video
+  ;; Spoiler: En el video no usa Clojure
 
-  ;; Of course, in the talk, Rafal is not only
-  ;; pretending data is immutable. He is also
-  ;; employing function purity.
+  ;; Por supuesto, en la charla, Rafal no solo
+  ;; finge que los datos son inmutables. También
+  ;; emplea la pureza funcional.
 
-  ;; == Pure functions
-  ;; Clojure doesn't force purity on you, like
-  ;; some languages do (looking at you Haskell), but
-  ;; it makes it easy to fall into the habit of
-  ;; writing pure functions and thus push side effects
-  ;; towards the ”edges” of your program.
+  ;; == Funciones puras
+  ;; Clojure no te fuerza a la pureza, como
+  ;; algunos lenguajes hacen (mirándote a ti, Haskell), pero
+  ;; hace que sea fácil caer en el hábito de
+  ;; escribir funciones puras y así empujar los efectos secundarios
+  ;; hacia los "bordes" de tu programa.
 
-  ;; A function is considered pure if it abides to
-  ;; these rules:
-  ;; 1. Always return the same value for the same input
-  ;; 2. Does not affect anything in its environment.
-  ;;    So, not mutating anything, including not printing
-  ;;    anything anywhere, or hitting mutating API
-  ;;    endpoints.
+  ;; Una función se considera pura si cumple con
+  ;; estas reglas:
+  ;; 1. Siempre devuelve el mismo valor para la misma entrada
+  ;; 2. No afecta nada en su entorno.
+  ;;    Es decir, no muta nada, incluido no imprimir
+  ;;    nada en ningún lugar, ni llamar a endpoints de API mutantes.
 
-  ;; A pure function is deterministic and you can
-  ;; safely call it without worrying that it will update
-  ;; application state or do anything else than
-  ;; compute its return value based on the input you
-  ;; hand it, and nothing but the input you hand it.
+  ;; Una función pura es determinista y puedes
+  ;; llamarla de forma segura sin preocuparte de que actualice
+  ;; el estado de la aplicación o haga cualquier otra cosa que
+  ;; calcular su valor de retorno basado en la entrada que
+  ;; le das, y nada más que la entrada que le das.
   )
 
-;; Before examining the `seq` abstraction, let's divert
-;; a bit into some common Clojure core functions for
-;; transforming data structures.
+;; Antes de examinar la abstracción `seq`, desviémonos
+;; un poco hacia algunas funciones comunes del núcleo de Clojure para
+;; transformar estructuras de datos.
 
 (comment
-  ;; = Transforming Data Structures =
-  ;; Clojure has a core library that makes it easy,
-  ;; fun, and readable to ”reach in” to a data
-  ;; structure and manipulate it, creating a
-  ;; copy with the result.
+  ;; = Transformando Estructuras de Datos =
+  ;; Clojure tiene una biblioteca principal que hace fácil,
+  ;; divertido y legible "llegar" a una estructura de datos
+  ;; y manipularla, creando una
+  ;; copia con el resultado.
 
-  ;; We have seen `assoc`, which creates a copy of
-  ;; the data structure with a new value at the index
-  ;; (in case of a `vector`) or key (in case of a map)
+  ;; Hemos visto `assoc`, que crea una copia de
+  ;; la estructura de datos con un nuevo valor en el índice
+  ;; (en el caso de un `vector`) o clave (en el caso de un mapa)
 
   (def colt-express
     {:name "Colt Express"
@@ -2308,13 +2296,13 @@ to the compiler") "This is not ignored"
                :vig 4
                :rex 5}})
 
-  ;; `assoc` can add a new key to a map
+  ;; `assoc` puede agregar una nueva clave a un mapa
 
   (def colt-express-w-age
     (assoc colt-express :age-from 10))
 
-  ;; With a vector you can only add a new item right
-  ;; behind the last item, not beyond
+  ;; Con un vector solo puedes agregar un nuevo elemento justo
+  ;; después del último elemento, no más allá
 
   (def board-games-empty
     [])
@@ -2322,7 +2310,7 @@ to the compiler") "This is not ignored"
   (def board-games-w-c-e
     (assoc board-games-empty 0 colt-express))
 
-  ;; board-games-empty is still empty. Thus
+  ;; board-games-empty todavía está vacío. Por lo tanto
 
   (def board-games-w-c-e-and-exit-fail
     (assoc board-games-empty 1 exit-haunted))
@@ -2330,26 +2318,26 @@ to the compiler") "This is not ignored"
   (def board-games-w-c-e-and-exit
     (assoc board-games-w-c-e 1 exit-haunted))
 
-  ;; Not that it is very common to add things
-  ;; to a vector using `assoc`. For this `conj`
-  ;; often makes more sense
+  ;; No es que sea muy común agregar cosas
+  ;; a un vector usando `assoc`. Para esto `conj`
+  ;; frecuentemente tiene más sentido
 
   (conj board-games-empty colt-express exit-haunted)
 
-  ;; `assoc` on maps can replace existing values
-  ;; (in the copy)
+  ;; `assoc` en mapas puede reemplazar valores existentes
+  ;; (en la copia)
 
   (def colt-express-w-age-and-adjusted-playtime
     (assoc colt-express-w-age :play-time 45))
 
-  ;; `assoc` on vectors can do this too
+  ;; `assoc` en vectores también puede hacer esto
 
   (def board-games-w-adjusted-c-e
     (assoc board-games-w-c-e
            0
            colt-express-w-age-and-adjusted-playtime))
 
-  ;; You can `assoc` multiple things in one call
+  ;; Puedes `assoc` múltiples cosas en una llamada
 
   (assoc colt-express
          :play-time 50
@@ -2359,155 +2347,153 @@ to the compiler") "This is not ignored"
          0 colt-express
          1 exit-haunted)
 
-  ;; (Again, there is `conj` for this.)
+  ;; (De nuevo, está `conj` para esto.)
 
-  ;; With maps there is also `merge`, letting you
-  ;; merge two or more maps together
+  ;; Con los mapas también hay `merge`, que te permite
+  ;; fusionar dos o más mapas juntos
 
   (merge colt-express
          {:play-time 45
           :age-from 10})
 
-  ;; NB: it is a ”shallow” merge, so adding a family
-  ;; member rating like this won't work.
+  ;; NB: Es una fusión "superficial", así que agregar una calificación de un
+  ;; miembro de la familia así no funcionará.
 
   (merge exit-haunted
          {:play-time 90
           :ratings {:lun 5}
           :age-from 10})
 
-  ;; `assoc` does the same
+  ;; `assoc` hace lo mismo
 
   (assoc exit-haunted :ratings {:lun 5})
 
-  ;; There is no deep-merge in Clojure core, but
-  ;; there is `assoc-in` for reaching in deeper
-  ;; Instead of an key (or index) it takes a ”path”
+  ;; No hay deep-merge en Clojure core, pero
+  ;; está `assoc-in` para llegar más profundo
+  ;; En lugar de una clave (o índice) toma una "ruta"
 
   (assoc-in exit-haunted [:ratings :lun] 5)
 
   (assoc-in colt-express [:categories 2] "Planning")
-  ;; (But... don't, see below under `update` for
-  ;; how to `conj` the category instead.)
+  ;; (Pero... no lo hagas, ver abajo bajo `update` para
+  ;; cómo hacer `conj` de la categoría en cambio.)
 
-  ;; Unlike with `assoc`, you can only add one thing
-  ;; at a time with `assoc-in`
+  ;; A diferencia de `assoc`, solo puedes agregar una cosa
+  ;; a la vez con `assoc-in`
 
-  ;; Removing things from a map is done with
+  ;; Eliminar cosas de un mapa se hace con
   ;; `dissoc`
 
   (dissoc colt-express :play-time :ratings :categories)
 
-  ;; You will probably use `dissoc` often with
-  ;; the REPL (like you do in this file) to
-  ;; examine some data structures that might
-  ;; have some large data structures in them,
-  ;; like a log or something
+  ;; Probablemente usarás `dissoc` con frecuencia con
+  ;; el REPL (como lo haces en este archivo) para
+  ;; examinar algunas estructuras de datos que podrían
+  ;; tener algunas estructuras de datos grandes en ellas,
+  ;; como un log o algo así
 
   (dissoc colt-express :log)
-  ;; (This data structure didn't have any log,
-  ;; so it was left unchanged, but anyway.)
+  ;; (Esta estructura de datos no tenía ningún log,
+  ;; así que no se modificó, pero de todas formas.)
 
-  ;; There is no `dissoc-in` in Clojure core, but
-  ;; let's return to that after we have visited
-  ;; `update` and `update-in`.
+  ;; No hay `dissoc-in` en Clojure core, pero
+  ;; regresemos a eso después de haber visitado
+  ;; `update` y `update-in`.
 
-  ;; `update` and `update-in` are similar to
-  ;; their `assoc` counterparts, but instead of a
-  ;; value, they take a function which is used to
-  ;; manipulate the value.
+  ;; `update` y `update-in` son similares a
+  ;; sus equivalentes `assoc`, pero en lugar de un
+  ;; valor, toman una función que se usa para
+  ;; manipular el valor.
 
   (update exit-haunted :name string/upper-case)
 
-  ;; An exercise for you: Update the `:play-time`
-  ;; of the `colt-express` entry with 5 or so
+  ;; Un ejercicio para ti: Actualiza el `:play-time`
+  ;; de la entrada `colt-express` con 5 o algo así
 
 
 
 
-  ;; Arguments that you add after the function
-  ;; get passed to the function
+  ;; Los argumentos que agregas después de la función
+  ;; se pasan a la función
 
   (update colt-express :categories conj "Planning")
 
-  ;; Exercise: Make your update of the :play-time
-  ;; take the `5` (or so) as an argument.
+  ;; Ejercicio: Haz que tu actualización del :play-time
+  ;; tome el `5` (o algo) como argumento.
 
 
 
 
-  ;; Exercise: Remove the `:pez` and `:wiv` entries
-  ;; from the `:ratings` of `exit-haunted`
+  ;; Ejercicio: Elimina las entradas `:pez` y `:wiv`
+  ;; de los `:ratings` de `exit-haunted`
 
 
 
 
-
-  ;; `update-in` is to `assoc-in` what `update` is
-  ;; to `assoc`.
+  ;; `update-in` es a `assoc-in` lo que `update` es
+  ;; a `assoc`.
 
   (update-in colt-express [:ratings :lun] inc)
 
   (update-in colt-express [:ratings :lun] + 9000)
   ;; https://www.youtube.com/watch?v=PCHxU7witPA
 
-  ;; Exercise: There is no `dissoc-in`, but it does
-  ;; look like you can use `update-in` for this,
-  ;; in'it?
+  ;; Ejercicio: No hay `dissoc-in`, pero parece
+  ;; que puedes usar `update-in` para esto,
+  ;; ¿verdad?
 
 
 
 
-
-  ;; The reward is one less visit to StackOverflow
-  ;; for you when lacking `dissoc-in` 😄
+  ;; La recompensa es una visita menos a StackOverflow
+  ;; cuando te falta `dissoc-in` 😄
   ;; https://stackoverflow.com/a/21942548/44639
 
-  ;; We have been using keywords as map lookup
-  ;; functions earlier. That's fine, but you might
-  ;; sometimes prefer the `get` function
+  ;; Hemos usado los keywords como funciones de búsqueda en mapas
+  ;; antes. Está bien, pero a veces puedes
+  ;; preferir la función `get`
 
   (get colt-express :ratings)
 
   (= (:ratings colt-express)
      (get colt-express :ratings))
 
-  ;; `get` takes a third argument that will be used
-  ;;  as the default, should the entry be missing
+  ;; `get` toma un tercer argumento que se usará
+  ;;  como predeterminado, si falta la entrada
 
   (get exit-haunted :play-time 0)
 
-  ;; keywords as lookup functions also supports
-  ;; this
+  ;; Los keywords como funciones de búsqueda también admiten
+  ;; esto
 
   (:play-time exit-haunted 0)
 
-  ;; Without the default, `nil` will be returned.
-  ;; Which might blow up, depending on what you
-  ;; use the value for
+  ;; Sin el predeterminado, se devolverá `nil`.
+  ;; Lo que podría explotar, dependiendo de para qué
+  ;; uses el valor
 
   (* (get colt-express :play-time) 2)
   (* (get exit-haunted :play-time) 2)
 
-  ;; Better safe than sorry, in cases like this
+  ;; Mejor prevenir que curar, en casos como este
 
   (* (get colt-express :play-time 0) 2)
   (* (get exit-haunted :play-time 0) 2)
 
-  ;; Yes, there is `get-in` as well
-  ;; Exercise: Use `get-in` to grab my rating
-  ;; on these two wonderful family games
+  ;; Sí, también hay `get-in`
+  ;; Ejercicio: Usa `get-in` para obtener mi calificación
+  ;; en estos dos maravillosos juegos de familia
 
 
-  ;; You might have noticed that all the
-  ;; functions in this section take the collection
-  ;; as their first argument. That makes them
-  ;; easy to use with the Thread First, `->`,
-  ;; macro. This is by design and highly idiomatic
+  ;; Puede que hayas notado que todas las
+  ;; funciones en esta sección toman la colección
+  ;; como su primer argumento. Eso las hace
+  ;; fáciles de usar con la macro Thread First, `->`.
+  ;; Esto es por diseño y muy idiomático en
   ;; Clojure.
 
-  ;; It is common to see data transformation pipe-
-  ;; lines like this
+  ;; Es común ver tuberías de transformación de datos
+  ;; como esta
 
   (-> exit-haunted
       (assoc :play-time 90)
@@ -2519,68 +2505,68 @@ to the compiler") "This is not ignored"
       (update :log conj "Name redacted")
       (update :log conj "(Because scary)"))
 
-  ;; (Although, perhaps more meaningful than that)
+  ;; (Aunque quizás más significativa que esa)
 
-  ;; I can recommend ”See also”-browsing ClojureDocs
-  ;; some starting here:
+  ;; Puedo recomendar navegar por "Ver también" en ClojureDocs
+  ;; comenzando aquí:
   ;; https://clojuredocs.org/clojure.core/update-in
-  ;; And pasting a lot of examples here to
-  ;; experiment with.
+  ;; Y pegando muchos ejemplos aquí para
+  ;; experimentar.
   )
 
 (comment
-  ;; == Manipulating `sets` ==
-  ;; Maps, vectors and sets are the bread and
-  ;; butter for most Clojure programs. With the
-  ;; amazing literal syntax for these the code gets
-  ;; gets easy to read and reason about. And
-  ;; manipulating them is easy and intuitive.
+  ;; == Manipulando `sets` ==
+  ;; Los mapas, vectores y conjuntos son el pan y la
+  ;; mantequilla de la mayoría de los programas Clojure. Con la
+  ;; increíble sintaxis literal para estos, el código se vuelve
+  ;; fácil de leer y razonar. Y
+  ;; manipularlos es fácil e intuitivo.
 
-  ;; `sets` are `seqs` (more on that later)
+  ;; Los `sets` son `seqs` (más sobre eso después)
 )
 
 
-;; To be continued...
+;; Continuará...
 
-;; Until there's more material to read here, maybe
-;; it's time you check how to connect Calva to
-;; your Clojure/ClojureScript projects:
+;; Hasta que haya más material que leer aquí, quizás
+;; es momento de que veas cómo conectar Calva a
+;; tus proyectos Clojure/ClojureScript:
 ;; https://calva.io/connect/
 
-;; Things on the to-write-about list:
-;; meta-data
-;; comments
-;; destructuring
-;; atoms
-;; nil, nil safety, nil punning
+;; Cosas en la lista de temas por escribir:
+;; metadatos
+;; comentarios
+;; desestructuración
+;; átomos
+;; nil, seguridad con nil, nil punning
 ;; seqs
-;; laziness
+;; pereza
 ;; loop, recur
-;; debugging
-;; some wrapping up exercises here and there
+;; depuración
+;; algunos ejercicios de repaso aquí y allá
 
-;; Learn much more Clojure at https://clojure.org/
-;; There is also ClojureScript, the same wonderful language,
-;; for JavaScript VMs: https://clojurescript.org
+;; Aprende mucho más sobre Clojure en https://clojure.org/
+;; También está ClojureScript, el mismo maravilloso lenguaje,
+;; para VMs JavaScript: https://clojurescript.org
 
-;; There is so much about Clojure not mentioned in this
-;; short guide. https://clojure.org/ is where you
-;; go for the complete story.
+;; Hay tanto sobre Clojure que no se menciona en esta
+;; guía corta. https://clojure.org/ es donde
+;; vas para la historia completa.
 
-;; To get help with your Clojure questions, check these
-;; resources out:
+;; Para obtener ayuda con tus preguntas sobre Clojure, revisa estos
+;; recursos:
 ;; https://ask.clojure.org/
 ;; https://clojurians.net
 ;; https://clojureverse.org
 ;; https://www.reddit.com/r/Clojure/
 ;; https://exercism.io/tracks/clojure
 
-;; And there are also many other resources, such as:
+;; Y también hay muchos otros recursos, como:
 ;; https://clojuredocs.org
 ;; https://clojure.org/api/cheatsheet
 
-"File loaded. Welcome to Clojure! ♥️"
+"Archivo cargado. ¡Bienvenido a Clojure! ♥️"
 
-;; This guide is downloaded from:
+;; Esta guía fue descargada de:
 ;; https://github.com/BetterThanTomorrow/dram
-;; Please consider contributing.
+;; Por favor, considera contribuir.

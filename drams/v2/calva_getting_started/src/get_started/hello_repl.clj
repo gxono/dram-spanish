@@ -1,81 +1,81 @@
 (ns get-started.hello-repl)
 
-"Welcome to the Getting Started REPL! 💜"
+"¡Bienvenido al REPL de Introducción! 💜"
 
-;; == Some VS Code knowledge required ==
-;; This tutorial assumes you know a few things about
-;; VS Code. Please check out this page if you are new
-;; to the editor: https://code.visualstudio.com/docs
+;; == Se requieren algunos conocimientos de VS Code ==
+;; Este tutorial asume que conoces algunas cosas sobre
+;; VS Code. Por favor, visita esta página si eres nuevo
+;; en el editor: https://code.visualstudio.com/docs
 
-;; == Keyboard Shortcuts Notation used in this tutorial ==
-;; We use a notation for keyboard shortcuts, where
-;; `+` means the keys are pressed at the same time
-;; and ` ` separates any keyboard presses in the sequence.
-;; `Ctrl+Alt/Option+C Enter` means to press
-;; Ctrl, Alt (or Option), and C
-;; all at the same time, then release the keys and
-;; then press Enter. (The Alt key is named Option or
-;; Opt, on some machines)
-;; When a button is different on different platforms,
-;; we will type the buttons separated by a slash.
+;; == Notación de atajos de teclado usada en este tutorial ==
+;; Usamos una notación para los atajos de teclado, donde
+;; `+` significa que las teclas se presionan al mismo tiempo
+;; y ` ` separa cualquier pulsación de tecla en la secuencia.
+;; `Ctrl+Alt/Option+C Enter` significa presionar
+;; Ctrl, Alt (u Option) y C
+;; todos al mismo tiempo, luego soltar las teclas y
+;; luego presionar Enter. (La tecla Alt se llama Option u
+;; Opt, en algunas computadoras)
+;; Cuando un botón es diferente en distintas plataformas,
+;; escribiremos los botones separados por una barra.
 
-;; == Evaluation results ==
-;; Evaluating code will show the first line of results
-;; inline. The full result is shown in two places:
-;; 1. The Calva Output “terminal”, which you will find
-;;    in the VS Code Terminal view.
-;; 2. The Calva Inspector, which is a side panel view
-;;    that lets you inspect the result in more detail.
+;; == Resultados de la evaluación ==
+;; Evaluar código mostrará la primera línea de los resultados
+;; en línea. El resultado completo se muestra en dos lugares:
+;; 1. La "terminal" de salida de Calva, que encontrarás
+;;    en la vista Terminal de VS Code.
+;; 2. El Inspector de Calva, que es un panel lateral
+;;    que te permite inspeccionar el resultado con más detalle.
 
-;; This project is configured to automatically start
-;; the REPL and connect it to the editor (Jack-in)
-;; If this does not happen, you may be using an older
-;; version of Calva. Please update to the latest
-;; version (or at least to v2.0.460).
+;; Este proyecto está configurado para iniciar automáticamente
+;; el REPL y conectarlo al editor (Jack-in)
+;; Si esto no ocurre, puede que estés usando una versión
+;; antigua de Calva. Por favor, actualiza a la última
+;; versión (o al menos a v2.0.460).
 ;;
-;; Once the REPL is connected (the REPL button in the
-;; status bar turns ember), you should load this file
-;; in the REPL. Use the command:
+;; Una vez que el REPL esté conectado (el botón REPL en la
+;; barra de estado se vuelve ámbar), debes cargar este archivo
+;; en el REPL. Usa el comando:
 ;;   Calva: Load/Evaluate Current File and its Requires/Dependencies
-;; Then you can evaluate the code ;; on the line above
-;; reading "Welcome to the Getting Started REPL! 💜"
-;; by placing the cursor on the line and press
+;; Luego puedes evaluar el código ;; en la línea de arriba
+;; que dice "¡Bienvenido al REPL de Introducción! 💜"
+;; colocando el cursor en la línea y presionando
 ;; `Alt/Option+Enter`.
 
-;; Did you? Great!
-;; See that `=> "Welcome ...` at the end of the line?
-;; That's the result of the evaluation you just
-;; performed. You just used the Clojure REPL!
-;; 🎉 Congratulations! 🎂
-;; You can dismiss the inline result by pressing `Esc`.
+;; ¿Lo hiciste? ¡Genial!
+;; ¿Ves ese `=> "Bienvenido ...` al final de la línea?
+;; Ese es el resultado de la evaluación que acabas de
+;; realizar. ¡Acabas de usar el REPL de Clojure!
+;; 🎉 ¡Felicitaciones! 🎂
+;; Puedes cerrar el resultado en línea presionando `Esc`.
 
 (comment
-  ;; You can evaluate the string below in the same way
+  ;; Puedes evaluar la cadena de texto a continuación de la misma manera
 
   "Hello World!"
 
-  ;; You are in a 'Rich Comment Form' which is where
-  ;; we Clojurians most often develop new code.
+  ;; Estás en un 'Rich Comment Form', que es donde
+  ;; los clojuristas solemos desarrollar nuevo código.
   ;; https://calva.io/rich-comments/
-  ;; It is often abbreviated as RCF.
+  ;; A menudo se abrevia como RCF.
 
-  ;; Evaluate the following form too (you can
-  ;; place the cursor anywhere on any of the two lines):
+  ;; Evalúa también la siguiente forma (puedes
+  ;; colocar el cursor en cualquier lugar de cualquiera de las dos líneas):
 
   (repeat 7
           "I am using the REPL! 💪")
 
-  ;; Only `=> ("I am using the REPL! 💪"` is displayed
-  ;; inline. You can see the full result, in three places:
-  ;; 1. The Calva Output “terminal”
-  ;; 2. The Calva Inspector. It has an _Inspect_ button
-  ;;    for each result that let's you expand the result
-  ;;    and explore it as a tree structure.
-  ;; 3. At the bottom of the inline result display hover
+  ;; Solo se muestra `=> ("I am using the REPL! 💪"`
+  ;; en línea. Puedes ver el resultado completo en tres lugares:
+  ;; 1. La "terminal" de salida de Calva
+  ;; 2. El Inspector de Calva. Tiene un botón _Inspect_
+  ;;    para cada resultado que te permite expandir el resultado
+  ;;    y explorarlo como una estructura de árbol.
+  ;; 3. En la parte inferior del resultado en línea al pasar el cursor
 
-  ;; Let's get into the REPL mood for real. 😂
-  ;; Place the cursor on any of the five code lines below:
-  ;; `Alt+Enter`, then `Ctrl/Cmd+K Ctrl/Cmd+I`.
+  ;; Entremos de verdad al modo REPL. 😂
+  ;; Coloca el cursor en cualquiera de las cinco líneas de código a continuación:
+  ;; `Alt+Enter`, luego `Ctrl/Cmd+K Ctrl/Cmd+I`.
 
   (map (fn [s]
          (if (< (count s) 5)
@@ -83,117 +83,117 @@
            s))
        ["an R" "an E" "a  P" "an L" "What do you get?" "REPL!"])
 
-  ;; Clear the inline display with `Esc`. The inline
-  ;; results are also cleared when you edit the file.
+  ;; Borra la pantalla en línea con `Esc`. Los resultados
+  ;; en línea también se borran cuando editas el archivo.
 
-  ;; Which brings us to a VERY IMPORTANT THING:
-  ;; By default, Calva will be a Guardian of the Parens.
-  ;; This means that the backspace and delete buttons
-  ;; will not delete balanced brackets. Please go ahead
-  ;; and try to delete a bracket in the expression above.
-  ;; See?
+  ;; Lo que nos lleva a algo MUY IMPORTANTE:
+  ;; Por defecto, Calva será un Guardián de los Paréntesis.
+  ;; Esto significa que los botones de retroceso y eliminar
+  ;; no eliminarán corchetes balanceados. Por favor, intenta
+  ;; eliminar un corchete en la expresión de arriba.
+  ;; ¿Lo ves?
 
-  ;; TO DELETE A BALANCED BRACKET:
-  ;;   press `alt/option+backspace` or `alt/option+delete`
+  ;; PARA ELIMINAR UN CORCHETE BALANCEADO:
+  ;;   presiona `alt/option+backspace` o `alt/option+delete`
 
-  :rcf) ; <- This is a convenient way to keep the closing
-        ;    paren of a Rich comment form from folding
-        ;    when the code is formatted.
+  :rcf) ; <- Esta es una forma conveniente de evitar que el cierre
+        ;    del paréntesis de un Rich comment form se pliegue
+        ;    cuando el código está formateado.
 
 
 
 ;;
-;; = HOW THIS GUIDE WORKS =
+;; = CÓMO FUNCIONA ESTA GUÍA =
 ;;
 
-;; There are three files for you to explore. For
-;; everyone new to Calva:
-;; 1. hello_repl.clj (this file)
-;; 2. welcome_to_clojure.clj (a Beginner's Clojure Guide)
-;; 3. hello_paredit.clj (intro to Calva structural editing)
+;; Hay tres archivos para explorar. Para
+;; todos los nuevos en Calva:
+;; 1. hello_repl.clj (este archivo)
+;; 2. welcome_to_clojure.clj (una Guía de Clojure para Principiantes)
+;; 3. hello_paredit.clj (introducción a la edición estructural de Calva)
 
-;; Please don't worry if you don't understand the code
-;; in the this file and in the paredit file.
-;; They are short and made so that you can just follow
-;; along without the actual code making sense yet. Things
-;; will clear up once you dig into the Clojure Guide.
+;; Por favor, no te preocupes si no entiendes el código
+;; en este archivo y en el archivo de paredit.
+;; Son cortos y están hechos para que puedas simplemente seguir
+;; el camino sin que el código real tenga sentido todavía. Las cosas
+;; se aclararán cuando profundices en la Guía de Clojure.
 
-;; About commands and shortcuts:
-;; Please read https://calva.io/finding-commands/
-;; (It's very short.)
-;; When we refer to commands by their name, use
-;; the VS Code Command Palette to search for them
-;; if you don't know the keyboard shortcut.
-;; All Calva commands are prefixed with ”Calva”.
+;; Sobre comandos y atajos:
+;; Por favor, lee https://calva.io/finding-commands/
+;; (Es muy corto.)
+;; Cuando nos referimos a los comandos por su nombre, usa
+;; la Paleta de Comandos de VS Code para buscarlos
+;; si no conoces el atajo de teclado.
+;; Todos los comandos de Calva tienen el prefijo "Calva".
 
-;; == Evaluating definitions ==
-;; Alt+Enter is the Calva default keyboard shortcut
-;; to evaluate the current ”top level” forms. Top
-;; level meaning the outermost ”container” of forms,
-;; which is the file. This function definition is on
-;; the top level. Please evaluate it!
+;; == Evaluando definiciones ==
+;; Alt+Enter es el atajo de teclado predeterminado de Calva
+;; para evaluar las formas del "nivel superior" actuales. Nivel
+;; superior significa el "contenedor" más externo de las formas,
+;; que es el archivo. Esta definición de función está en
+;; el nivel superior. ¡Por favor, evalúala!
 
 (defn greet
   "I'll greet you"
   [s]
   (str "Hello " s "!"))
 
-;; Forms inside `(comment ...)` are also considered
-;; to be top level. This makes it easy to experiment
-;; with code.
+;; Las formas dentro de `(comment ...)` también se consideran
+;; de nivel superior. Esto facilita experimentar
+;; con el código.
 
 (comment
   (greet "World")
   :rcf)
 
-;; Anything printed to stdout is not shown inline.
+;; Cualquier cosa impresa en stdout no se muestra en línea.
 
 (comment
   (println (greet "World"))
   :rcf)
 
-;; You should see the result of the evaluation, nil,
-;; inline, and ”Hello World!” followed by the result
-;; printed to the output terminal.
+;; Deberías ver el resultado de la evaluación, nil,
+;; en línea, y "Hello World!" seguido del resultado
+;; impreso en la terminal de salida.
 
-;; Maybe you wonder what a ”form” is? Loosely defined
-;; it is about the same as an S-expression:
+;; ¿Quizás te preguntas qué es una "forma"? Definida de forma general,
+;; es más o menos lo mismo que una S-expresión:
 ;; https://en.wikipedia.org/wiki/S-expression
-;; That is, either a ”word” or something enclosed in
-;; brackets of some type, parens (), hard brackets [],
-;; curlies {}, or quotes "". This whole thing is a
-;; form:
+;; Es decir, ya sea una "palabra" o algo encerrado en
+;; algún tipo de corchetes, paréntesis (), corchetes duros [],
+;; llaves {}, o comillas "". Todo esto es una
+;; forma:
 
 (str 23 (apply + [2 3]) (:foo {:foo "foo"}))
 
-;; So is `str`, `23`, "foo", `(apply + [2 3])`,
-;; `{:foo "foo"}`, `+`, `[2 3]`, `apply`, and also
+;; También lo son `str`, `23`, "foo", `(apply + [2 3])`,
+;; `{:foo "foo"}`, `+`, `[2 3]`, `apply`, y también
 ;; `(:foo {:foo "foo"})`.
 
-;; Calva has a concept of ”current form”, to let you
-;; evaluate forms that are not at the top level. The
-;; ”current form” is determined by where the cursor is.
-;; Calva has two commands that will let you easily
-;; experiment with which form is considered current:
+;; Calva tiene un concepto de "forma actual", para permitirte
+;; evaluar formas que no están en el nivel superior. La
+;; "forma actual" se determina por la posición del cursor.
+;; Calva tiene dos comandos que te permitirán fácilmente
+;; experimentar con qué forma se considera actual:
 ;; * Calva: Select Current Form
 ;; * Calva: Expand Selection
 
 
-;; == Evaluating the Current Form ==
-;; Ctrl+Enter evaluates the ”current” form
-;; Try it with the cursor at different places in this
-;; code snippet:
+;; == Evaluando la Forma Actual ==
+;; Ctrl+Enter evalúa la forma "actual"
+;; Pruébalo con el cursor en diferentes lugares en este
+;; fragmento de código:
 
 (comment
 
   (str 23 (apply + [2 3]) (:foo {:foo "foo"}))
 
-  ;; You might discover that Calva regards words in
-  ;; strings as forms. Don't panic if `foo` causes
-  ;; an evaluation error. It is not defined, since
-  ;; it shouldn't be. You can define it, of course,
-  ;; just for fun and learning: Top level eval these
-  ;; definitions. (`Alt/Option+Enter`)
+  ;; Puede que descubras que Calva considera las palabras en
+  ;; cadenas como formas. No entres en pánico si `foo` causa
+  ;; un error de evaluación. No está definida, ya que
+  ;; no debería estarlo. Puedes definirla, por supuesto,
+  ;; solo por diversión y aprendizaje: Evalúa estas
+  ;; definiciones en el nivel superior. (`Alt/Option+Enter`)
 
   (def foo
     [1 2 "three four"])
@@ -202,16 +202,16 @@
 
   :rcf)
 
-;; Then eval current form inside the strings above.
-;; Whatever you ask Calva to send to the REPL, Calva
-;; will send to the REPL.
+;; Luego evalúa la forma actual dentro de las cadenas de arriba.
+;; Lo que le pidas a Calva que envíe al REPL, Calva
+;; lo enviará al REPL.
 
 
-;; == Rich Comments Support ==
-;; Repeating an important concept: Forms inside
-;; `(comment ...)` are also considered top level
-;; by Calva. Alt/Option+Enter at different places below
-;; to get a feel for it.
+;; == Soporte de Rich Comments ==
+;; Repitiendo un concepto importante: Las formas dentro de
+;; `(comment ...)` también se consideran de nivel superior
+;; por Calva. Alt/Option+Enter en diferentes lugares a continuación
+;; para familiarizarte con ello.
 
 (comment
   "I ♥️ Clojure"
@@ -226,7 +226,7 @@
   :rcf)
 
 
-;; Also try the commands *Show Hover*,
+;; También prueba los comandos *Show Hover*,
 ;; *Show Definition Preview Hover*
 ;; *Go to Definition*
 
@@ -235,31 +235,31 @@
   (+ (* 2 2)
      2)
 
-  ;; Here too, if you have Java sources installed
+  ;; Aquí también, si tienes fuentes de Java instaladas
   (Math/abs -1)
   :rcf)
 
 
-;; == You Control what is Evaluated ==
-;; Please note that Calva never evaluates your code
-;; unless you explicitly ask for it. So, except for
-;; this file, you will have to load files you open
-;; yourself. Make it a habit to do this, because
-;; sometimes things don't work, and they fail in
-;; peculiar ways, when your file is not loaded.
+;; == Tú Controlas lo que se Evalúa ==
+;; Ten en cuenta que Calva nunca evalúa tu código
+;; a menos que lo pidas explícitamente. Así que, excepto para
+;; este archivo, tendrás que cargar los archivos que abras
+;; tú mismo. Haz un hábito de esto, porque
+;; a veces las cosas no funcionan, y fallan de
+;; maneras peculiares, cuando tu archivo no está cargado.
 
-;; Try it with this file: `Ctrl+Alt+C Enter`.
-;; The result of loading a file is whatever is the
-;; last top level form in the file.
+;; Pruébalo con este archivo: `Ctrl+Alt+C Enter`.
+;; El resultado de cargar un archivo es cualquier
+;; última forma de nivel superior en el archivo.
 
-;; == Editing Code ==
-;; A note about editing Clojure in Calva:
-;; If you edit and experiment with the examples you
-;; will notice that Calva auto-indents your code.
-;; You can re-indent, and format, code at will, using
-;; the `Tab` key. It will format the current enclosing
-;; form. Try it at the numbered places in this piece
-;; of code, starting at `; 1`:
+;; == Editando Código ==
+;; Una nota sobre la edición de Clojure en Calva:
+;; Si editas y experimentas con los ejemplos
+;; notarás que Calva sangra automáticamente tu código.
+;; Puedes re-sangrar y formatear el código cuando quieras, usando
+;; la tecla `Tab`. Formateará la forma envolvente actual.
+;; Pruébalo en los lugares numerados en este fragmento
+;; de código, comenzando en `; 1`:
 
 (comment ; 3
   (defn- divisible
@@ -275,13 +275,13 @@
       :else                  n))
   :rcf)
 
-;; === Paredit `strict` mode  is on ===
-;; Calva supports structural editing (editing that
-;; considers forms rather than lines) using a system
-;; called Paredit. By default Paredit tries to protect
-;; from accidentally deleting brackets and unbalancing
-;; the structure of forms. To override the protection,
-;; use `Alt+Backspace` or `Alt+delete`.
+;; === El modo `strict` de Paredit está activado ===
+;; Calva admite la edición estructural (edición que
+;; considera formas en lugar de líneas) usando un sistema
+;; llamado Paredit. Por defecto, Paredit intenta proteger
+;; contra la eliminación accidental de corchetes y el
+;; desequilibrio de la estructura de las formas. Para anular la protección,
+;; usa `Alt+Backspace` o `Alt+delete`.
 
 (comment
   (defn strict-greet
@@ -294,27 +294,27 @@
   (strict-greet "dear Paredit fan")
   :rcf)
 
-;; (Restore with *Undo* if needed.)
-;; See `hello_paredit.clj` for more. And also:
+;; (Restaura con *Undo* si es necesario.)
+;; Consulta `hello_paredit.clj` para más información. Y también:
 ;; https://calva.io/paredit
 
-;;;;;;;;;;;;;;;;;;; CHECKPOINT ;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;; PUNTO DE CONTROL ;;;;;;;;;;;;;;;;;;;
 
-;; You now know enough about Calva to experiment
-;; with the code in `welcome_to_clojure.clj`.
-;; This file continues with some more neat Calva
-;; features, so you should definitely return here
-;; after you learn some things about Clojure.
-;; Like, what a threaded expression is.
+;; Ahora sabes suficiente sobre Calva para experimentar
+;; con el código en `welcome_to_clojure.clj`.
+;; Este archivo continúa con algunas características más interesantes de Calva,
+;; así que definitivamente deberías regresar aquí
+;; después de aprender algunas cosas sobre Clojure.
+;; Como, qué es una expresión encadenada (threaded).
 
-;; == Evaluating in Threaded Expressions
-;; Ctrl+Alt+Enter will evaluate the current enclosing
-;; form up to the cursor. Useful in threaded
-;; expressions. Say you want to calculate the average
-;; ratings for the data below:
+;; == Evaluando en Expresiones Encadenadas
+;; Ctrl+Alt+Enter evaluará la forma envolvente actual
+;; hasta el cursor. Útil en expresiones encadenadas.
+;; Digamos que quieres calcular la calificación promedio
+;; de los datos a continuación:
 
 (comment
-  ;; First you need to top-level evaluate this
+  ;; Primero necesitas evaluar esto en el nivel superior
   (def colt-express
     {:name "Colt Express"
      :categories ["Family"
@@ -327,39 +327,39 @@
                :rex 5.0
                :lun 4.0}})
 
-  ;; And this
+  ;; Y esto
   (defn average [coll]
     (/ (apply + coll) (count coll)))
 
-  ;; This too, if you like
+  ;; También esto, si quieres
   (->> colt-express
        :ratings
        vals
        average)
 
-  ;; To see the result at each step in the thread
-  ;; You can also Ctrl+Alt+Enter after each form.
-  ;; Place the cursor after `(->> colt-express` and
-  ;; try it. Then after `:ratings`, and after `vals`.
+  ;; Para ver el resultado en cada paso del encadenamiento
+  ;; También puedes usar Ctrl+Alt+Enter después de cada forma.
+  ;; Coloca el cursor después de `(->> colt-express` y
+  ;; pruébalo. Luego después de `:ratings`, y después de `vals`.
   :rcf)
 
-;; == Evaluating Top Level Form to Cursor
-;; Shift+Alt+Enter will evaluate all code from
-;; the start of the current top level form, up until
-;; the cursor, with all open brackets closed.
-;; Try it by repeating the above example, but start
-;; with placing the cursor at, say, right behind
-;; `:wiw 5.0`, then evaluating top level to cursor.
+;; == Evaluando la Forma de Nivel Superior hasta el Cursor
+;; Shift+Alt+Enter evaluará todo el código desde
+;; el inicio de la forma de nivel superior actual, hasta
+;; el cursor, con todos los corchetes abiertos cerrados.
+;; Pruébalo repitiendo el ejemplo anterior, pero comienza
+;; colocando el cursor en, digamos, justo detrás
+;; de `:wiw 5.0`, luego evalúa el nivel superior hasta el cursor.
 
 (comment
-  ;; The command is useful when evaluating a block of
-  ;; code up to a point. You might for instance wrap
-  ;; some code in a `(do ...)` and then use the
-  ;; *Evaluate From Start of Top Level Form to Cursor*
-  ;; command at different places to examine the code.
-  ;; Try it at the numbered line comment below.
+  ;; El comando es útil al evaluar un bloque de
+  ;; código hasta un punto. Por ejemplo, puedes envolver
+  ;; algún código en un `(do ...)` y luego usar el
+  ;; comando *Evaluate From Start of Top Level Form to Cursor*
+  ;; en diferentes lugares para examinar el código.
+  ;; Pruébalo en la línea de comentario numerada a continuación.
 
-  ; But first top-level eval this one
+  ; Pero primero evalúa esto en el nivel superior
   (defn average [coll]
     (/ (apply + coll) (count coll)))
 
@@ -371,7 +371,7 @@
        :play-time 40
        :ratings {:pez 5.0
                  :kat 5.0
-                 :wiw 5.0   ; 1, then eval `bar-express`
+                 :wiw 5.0   ; 1, luego evalúa `bar-express`
                  :vig 3.0
                  :rex 5.0
                  :lun 4.0}})
@@ -383,27 +383,27 @@
       (->> foo-express   ; 2
            :ratings      ; 3
            vals          ; 4
-           (average)     ; 5 (If this blows up you need to
-                         ;   top level eval the `average`
-                         ;   function definition.)
+           (average)     ; 5 (Si esto falla necesitas
+                         ;   evaluar en nivel superior la definición
+                         ;   de la función `average`.)
            )))
   :rcf)
 
-;; == The Calva Debugger ==
+;; == El Depurador de Calva ==
 ;; https://calva.io/debugger/
-;; The easiest way to use it is to
-;; instrument a function for debugging. You do that
-;; by having the cursor in the function and then
-;; use the command:
+;; La forma más sencilla de usarlo es
+;; instrumentar una función para depuración. Para hacer eso
+;; coloca el cursor en la función y luego
+;; usa el comando:
 ;; *Instrument Current Top Level Form for Debugging*
-;; Then you call the function. This will cause the
-;; debugger to stop at the first breakable point in
-;; the instrumented function
+;; Luego llama a la función. Esto hará que el
+;; depurador se detenga en el primer punto interrumpible en
+;; la función instrumentada
 
 (comment
-  ;; Let's try it without instrumentation first. This
-  ;; function has a bug. Evaluate it the usual way
-  ;; (`Alt+Enter`) first and then call it.
+  ;; Intentémoslo primero sin instrumentación. Esta
+  ;; función tiene un error. Evalúala de la manera usual
+  ;; (`Alt+Enter`) primero y luego llámala.
 
   (defn bar
     [n]
@@ -411,58 +411,58 @@
           (> n 20) (- (first n) 20)
           :else 0))
 
-  (bar 2)  ; works
-  (bar 24) ; throws, what's going on?
+  (bar 2)  ; funciona
+  (bar 24) ; lanza error, ¿qué está pasando?
 
-  ;; That's a strange error message (maybe you say,
-  ;; depending on how familiar you are with Clojure).
-  ;; Now instrument the function as described above.
-  ;; Calva will indicate code that is instrumented for
-  ;; debugging. Now evaluate the problematic function
-  ;; call. The debugger will start and wait for you
-  ;; to step through the function.
+  ;; Ese es un mensaje de error extraño (quizás digas,
+  ;; dependiendo de cuán familiarizado estés con Clojure).
+  ;; Ahora instrumenta la función como se describe arriba.
+  ;; Calva indicará el código que está instrumentado para
+  ;; depuración. Ahora evalúa la llamada a la función problemática.
+  ;; El depurador iniciará y esperará a que
+  ;; recorras la función paso a paso.
   ;;
-  ;; To un-instrument the function, just evaluate it
-  ;; the normal way (top level evaluation).
-  ;; Debugger docs here: https://calva.io/debugger/
+  ;; Para des-instrumentar la función, simplemente evalúala
+  ;; de la manera normal (evaluación de nivel superior).
+  ;; Documentación del depurador aquí: https://calva.io/debugger/
 
-  ;; NB: If you are new to Clojure you might find some
-  ;; familiarity noting that Calva has a debugger.
-  ;; However, try exploring Interactive Programming,
-  ;; using the REPL first. That's the Clojure Way.
-  ;; This section is here for you to get aware that
-  ;; the debugger exists, for those rare occasions
-  ;; when it is actually needed.
+  ;; NB: Si eres nuevo en Clojure, puede que encuentres cierta
+  ;; familiaridad al notar que Calva tiene un depurador.
+  ;; Sin embargo, intenta explorar la Programación Interactiva,
+  ;; usando el REPL primero. Esa es la Manera Clojure.
+  ;; Esta sección está aquí para que sepas que
+  ;; el depurador existe, para esas raras ocasiones
+  ;; en que realmente se necesita.
   :rcf)
 
-;; == Stopping Infinite Loops ==
-;; Since evaluating Clojure expressions is so
-;; easy and fun, sometimes you happen to evaluate
-;; something that never finishes, or takes too long
-;; to finish. For this, Calva has a command named
-;; *Interrupt Running Evaluations*. You will need
-;; it if you top-level evaluate this:
+;; == Detener Bucles Infinitos ==
+;; Como evaluar expresiones de Clojure es tan
+;; fácil y divertido, a veces sucede que evalúas
+;; algo que nunca termina, o tarda demasiado
+;; en terminar. Para esto, Calva tiene un comando llamado
+;; *Interrupt Running Evaluations*. Lo necesitarás
+;; si evalúas esto en el nivel superior:
 
 (comment
   (def tmp1 (dorun (range)))
   :rcf)
 
-;; Done? Awesome. Please consider familiarizing
-;; yourself more with Paredit using the interactive
-;; guide. If you are new to Clojure, please
-;; continue with `welcome_to_clojure.clj`, which is an
-;; interactive guide to the Clojure language.
+;; ¿Listo? Genial. Por favor, considera familiarizarte
+;; más con Paredit usando la guía interactiva.
+;; Si eres nuevo en Clojure, por favor
+;; continúa con `welcome_to_clojure.clj`, que es una
+;; guía interactiva del lenguaje Clojure.
 
-;; Have a Clojure project you want to hook
-;; Calva up to? See: https://calva.io/connect/
+;; ¿Tienes un proyecto Clojure al que quieres conectar
+;; Calva? Consulta: https://calva.io/connect/
 
-;; Learn much more about Calva at https://calva.io
+;; Aprende mucho más sobre Calva en https://calva.io
 
-;; This string is the last expression in this file
-"hello_repl.clj is loaded, and ready with some things for you to try."
-;; It is what you'll see printed in the Output
-;; window when you load the file.
+;; Esta cadena es la última expresión en este archivo
+"hello_repl.clj está cargado, y listo con algunas cosas para que pruebes."
+;; Es lo que verás impreso en la ventana de salida
+;; cuando cargues el archivo.
 
-;; This guide downloaded from:
+;; Esta guía fue descargada de:
 ;; https://github.com/BetterThanTomorrow/dram
-;; Please consider contributing.
+;; Por favor, considera contribuir.

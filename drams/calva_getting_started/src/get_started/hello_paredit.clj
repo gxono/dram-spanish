@@ -1,38 +1,38 @@
 (ns get-started.hello-paredit)
 
-;; Start with loading this file
+;; Comienza cargando este archivo
 ;; Ctrl+Alt+C Enter
 
-;; Clojure is a LISP and therefore the code
-;; is structural. Everything is organized in
-;; ”forms”, aka S-expressions (sexprs).
+;; Clojure es un LISP y por lo tanto el código
+;; es estructural. Todo está organizado en
+;; "formas", también conocidas como S-expresiones (sexprs).
 ;; https://en.wikipedia.org/wiki/S-expression
-;; A form is any literal or ”symbol” or
-;; literal collection (different kinds of
-;; lists) of literals. Paredit helps you take
-;; advantage of this structure.
+;; Una forma es cualquier literal o "símbolo" o
+;; colección literal (diferentes tipos de
+;; listas) de literales. Paredit te ayuda a aprovechar
+;; esta estructura.
 
-;; == There are Many Paredit Commands ==
-;; Search the VS Code command pallette for
-;; Paredit to see all its commands. Pay
-;; close attention to the shortcuts it displays
-;; for the commands you use often.
-;; See https://calva.io/paredit for much
-;; more than we show here.
+;; == Hay Muchos Comandos de Paredit ==
+;; Busca en la paleta de comandos de VS Code
+;; "Paredit" para ver todos sus comandos. Presta
+;; mucha atención a los atajos que muestra
+;; para los comandos que uses con frecuencia.
+;; Consulta https://calva.io/paredit para mucho
+;; más de lo que mostramos aquí.
 
-;; Alt+Enter this one
+;; Evalúa esto con Alt+Enter
 
 (->> ["I" "💖" "Paredit"]
      (interpose " ~ ")
      (apply str))
 
-;; (To get into a good mood. 😍)
+;; (Para entrar en buen ánimo. 😍)
 
-;; == Strict Mode Protection ==
-;; Paredit strict mode is active by default.
-;; It will help you to not delete brackets that
-;; would break the structure of the code.
-;; Use Alt+Backspace to override.
+;; == Protección del Modo Estricto ==
+;; El modo estricto de Paredit está activo por defecto.
+;; Te ayudará a no eliminar corchetes que
+;; romperían la estructura del código.
+;; Usa Alt+Backspace para anularlo.
 
 (defn strict-greet
   "Try to remove brackets and string quotes
@@ -41,12 +41,12 @@
   [name]
   (str "Strictly yours, " name "!"))
 
-;; (Restore with *Undo* if needed.)
+;; (Restaura con *Undo* si es necesario.)
 
-;; == Select with Ease ==
-;; Place the cursor in a form, for example on `select-me`
-;; below, and then use *Paredit Expand Selection*
-;; Repeat the command to expand one level more
+;; == Selecciona con Facilidad ==
+;; Coloca el cursor en una forma, por ejemplo en `select-me`
+;; a continuación, y luego usa *Paredit Expand Selection*
+;; Repite el comando para expandir un nivel más
 
 (comment
   (-> 4
@@ -56,15 +56,15 @@
        (repeat 3))
       (vec)))
 
-;; There is also *Paredit Shrink Selection*
+;; También existe *Paredit Shrink Selection*
 
-;; == Navigate the Structure ==
-;; Move form-by-form using *Paredit Forward Sexp*
-;; and *Paredit Backward Sexp*
-;; Note: Despite what the command palette is showing, the
-;; Keyboard shortcuts for Mac are alt+right/left and
-;; for Windows and Linux they are ctrl+right/left
-;; See https://github.com/BetterThanTomorrow/calva/issues/1161
+;; == Navega la Estructura ==
+;; Muévete forma por forma usando *Paredit Forward Sexp*
+;; y *Paredit Backward Sexp*
+;; Nota: A pesar de lo que muestra la paleta de comandos, los
+;; atajos de teclado para Mac son alt+right/left y
+;; para Windows y Linux son ctrl+right/left
+;; Consulta https://github.com/BetterThanTomorrow/calva/issues/1161
 
 (def move
   [{:zero 0}
@@ -72,13 +72,13 @@
    "four"
    #:five {:bar 'baz}])
 
-;; Also try *Paredit Select Forward/Backward*
-;; All *Paredit Select ...* commands work together with
+;; También prueba *Paredit Select Forward/Backward*
+;; Todos los comandos *Paredit Select ...* funcionan junto con
 ;; *Paredit Expand/Shrink Selection*
 
-;; == Edit the Structure ==
-;; A structural delete a day keeps the doctor away
-;; Search the Command Palette for *Paredit Kill*
+;; == Edita la Estructura ==
+;; Una eliminación estructural al día mantiene al médico alejado
+;; Busca en la Paleta de Comandos *Paredit Kill*
 
 (defn delete
   "Strings are treated a bit like lists, try
@@ -93,34 +93,34 @@
   "To delete and copy, use *Paredit Select ...*
    then *Cut*")
 
-;; === Move those Brackets ===
-;; *Paredit Slurp* and *Paredit Barf* are handy
-;; commands to move forms in and out of the current
-;; list/vector/map/string (or move brackets, depending
-;; on your perspective.)
+;; === Mueve esos Corchetes ===
+;; *Paredit Slurp* y *Paredit Barf* son comandos
+;; útiles para mover formas hacia adentro y afuera de la
+;; lista/vector/mapa/cadena actual (o mover corchetes, dependiendo
+;; de tu perspectiva.)
 
 (def slurp-barf [{:barf-me "barf-me-too"}
                  'slurp-me-then-barf-me])
 
-;; === Raise ===
-;; *Paredit Raise Sexp* replaces the enclosing
-;; form with the ”current” form
-;; Raise and Undo a bit in this snippet:
+;; === Elevar ===
+;; *Paredit Raise Sexp* reemplaza la forma envolvente
+;; con la forma "actual"
+;; Eleva y deshace un poco en este fragmento:
 
 (comment
   (def raise-me
     #:or-raise-me {:or-me [1 2 3 4]
                    :or-this-> #{1 2 3 4}}))
 
-;; Learn much more Paredit: https://calva.io/paredit
+;; Aprende mucho más sobre Paredit: https://calva.io/paredit
 
-;; == Insert Coin to Continue ==
-;; If you are new to Clojure, please continue
-;; with `hello_clojure.clj` and evaluate your way
-;; to some basic Clojure knowledge.
+;; == Inserta Moneda para Continuar ==
+;; Si eres nuevo en Clojure, por favor continúa
+;; con `hello_clojure.clj` y evalúa tu camino
+;; hacia algunos conocimientos básicos de Clojure.
 
-"Hello Calva Paredit λ 💖 🚀"
+"Hola Calva Paredit λ 💖 🚀"
 
-;; This guide downloaded from:
+;; Esta guía fue descargada de:
 ;; https://github.com/BetterThanTomorrow/dram
-;; Please consider contributing.
+;; Por favor, considera contribuir.
